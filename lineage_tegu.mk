@@ -11,6 +11,7 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 # Inherit device configuration
 DEVICE_CODENAME := tegu
 DEVICE_PATH := device/google/tegu
+VENDOR_PATH := vendor/google/tegu
 $(call inherit-product, $(DEVICE_PATH)/aosp_$(DEVICE_CODENAME).mk)
 $(call inherit-product, device/google/zumapro/lineage_common.mk)
 $(call inherit-product, $(DEVICE_PATH)/$(DEVICE_CODENAME)/device-lineage.mk)
@@ -28,3 +29,5 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     BuildDesc="tegu-user 16 BP2A.250605.031.A2 13578606 release-keys" \
     BuildFingerprint=google/tegu/tegu:16/BP2A.250605.031.A2/13578606:user/release-keys \
     DeviceProduct=$(DEVICE_CODENAME)
+
+$(call inherit-product, $(VENDOR_PATH)/$(DEVICE_CODENAME)-vendor.mk)

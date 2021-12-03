@@ -30,4 +30,5 @@ include device/google/tegu/sepolicy/tegu-sepolicy.mk
 include device/google/tegu/wifi/BoardConfig-wifi.mk
 
 DEVICE_PATH := device/google/tegu
+VENDOR_PATH := vendor/google/tegu
 include $(DEVICE_PATH)/$(TARGET_BOOTLOADER_BOARD_NAME)/BoardConfigLineage.mk
