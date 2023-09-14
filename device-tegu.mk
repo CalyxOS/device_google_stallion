@@ -196,7 +196,7 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # WiFi Overlay
 PRODUCT_PACKAGES += \
-    WifiOverlay2024
+    WifiOverlay2024_M25
 
 # Trusty liboemcrypto.so
 PRODUCT_SOONG_NAMESPACES += vendor/google_devices/tegu/prebuilts
