@@ -19,6 +19,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     Iwlan
 
+# wireless_charger HAL service
+include device/google/gs-common/wireless_charger/wireless_charger.mk
+
 # Build necessary packages for vendor
 
 # Dumpstate
