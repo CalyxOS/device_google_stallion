@@ -75,7 +75,7 @@ PRODUCT_COPY_FILES += \
 	device/google/tegu/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_PRODUCT)/etc/libnfc-nci.conf
 
 PRODUCT_PACKAGES += \
-	NfcNci \
+	com.android.nfcservices \
 	Tag \
 	android.hardware.nfc-service.st
 
