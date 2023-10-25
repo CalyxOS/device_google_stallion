@@ -20,4 +20,4 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/factory_tegu.mk \
 
 COMMON_LUNCH_CHOICES := \
-    aosp_tegu-userdebug
+    aosp_tegu-trunk_staging-userdebug
