@@ -43,7 +43,7 @@ include device/google/tegu/fingerprint/ultrasonic_udfps.mk
 # go/lyric-soong-variables
 # # TODO(298309659): Needs to check with owner later
 $(warning camera_hardware set to zuma on zumapro target)
-$(call soong_config_set,lyric,camera_hardware,ripcurrent)
+$(call soong_config_set,lyric,camera_hardware,tegu)
 $(warning tuning_product set to zuma on zumapro target)
 $(call soong_config_set,lyric,tuning_product,ripcurrent)
 $(warning target_device set to zuma on zumapro target)
