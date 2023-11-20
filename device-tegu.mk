@@ -38,7 +38,6 @@ include device/google/zumapro/device-shipping-common.mk
 include hardware/google/pixel/vibrator/cs40l26/device.mk
 include device/google/gs-common/bcmbt/bluetooth.mk
 include device/google/gs-common/touch/syna/syna20.mk
-include device/google/tegu/fingerprint/ultrasonic_udfps.mk
 
 # go/lyric-soong-variables
 # # TODO(298309659): Needs to check with owner later
