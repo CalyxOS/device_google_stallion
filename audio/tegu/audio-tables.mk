@@ -33,7 +33,7 @@ PRODUCT_COPY_FILES += \
     device/google/tegu/audio/$(AUDIO_TABLE_FOLDER)/config/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml
 
 # Speaker firmware files
-SPK_FIRMWARE_PATH := $(AUDIO_TABLE_FOLDER)/cs35l41/fw
+SPK_FIRMWARE_PATH := $(AUDIO_TABLE_FOLDER)/tas2572
 SPK_FIRMWARE_FULL_PATH := device/google/tegu/audio/$(SPK_FIRMWARE_PATH)
 
 PRODUCT_COPY_FILES += $(call copy-files,$(wildcard  $(SPK_FIRMWARE_FULL_PATH)/*),$(TARGET_COPY_OUT_VENDOR)/firmware)
