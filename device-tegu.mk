@@ -194,24 +194,7 @@ PRODUCT_SOONG_NAMESPACES += \
     device/google/tegu/uwb
 
 # Location
-# SDK build system
-$(call soong_config_set, include_libsitril-gps-wifi, board_without_radio, $(BOARD_WITHOUT_RADIO))
-include device/google/gs-common/gps/brcm/device.mk
-
-PRODUCT_COPY_FILES += \
-       device/google/tegu/location/gps.cer:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/gps.cer
-
-ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
-        PRODUCT_COPY_FILES += \
-            device/google/tegu/location/lhd.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/lhd.conf \
-            device/google/tegu/location/scd.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/scd.conf \
-            device/google/tegu/location/gps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/gps.xml
-else
-        PRODUCT_COPY_FILES += \
-            device/google/tegu/location/lhd_user.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/lhd.conf \
-            device/google/tegu/location/scd_user.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/scd.conf \
-            device/google/tegu/location/gps_user.xml:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/gps.xml
-endif
+include device/google/tegu/location/gnssd/device-gnss.mk
 
 # Set zram size
 PRODUCT_VENDOR_PROPERTIES += \
