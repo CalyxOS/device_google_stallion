@@ -62,10 +62,6 @@ PRODUCT_COPY_FILES += \
     device/google/tegu/audio/$(AUDIO_TABLE_FOLDER)/tuning/bluenote/template.xml:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/template.xml \
     device/google/tegu/audio/$(AUDIO_TABLE_FOLDER)/tuning/bluenote/tuning_constraints_combination.xml:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/tuning_constraints_combination.xml
 
-# Mixer Path Configuration for Audio Speaker Calibration Tool crus_sp_cal
-PRODUCT_COPY_FILES += \
-    device/google/tegu/audio/$(AUDIO_TABLE_FOLDER)/cs35l41/crus_sp_cal_mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/crus_sp_cal_mixer_paths.xml
-
 PRODUCT_COPY_FILES += \
     device/google/tegu/audio/$(AUDIO_TABLE_FOLDER)/tuning/waves/tests/test_config.ini:$(TARGET_COPY_OUT_VENDOR)/etc/test_config.ini \
     device/google/tegu/audio/$(AUDIO_TABLE_FOLDER)/tuning/waves/tests/test_preset.mps:$(TARGET_COPY_OUT_VENDOR)/etc/test_preset.mps
