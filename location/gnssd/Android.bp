@@ -65,6 +65,7 @@ cc_prebuilt_binary {
                 "libc",
                 "libm",
                 "libdl",
+                "libcurl",
             ],
         },
     },
