@@ -18,6 +18,7 @@
     <ctl name="TDM_0_RX Mixer US" value="0" />
     <ctl name="US Record Enable" value="0" />
     <ctl name="TAS25XX CODEC PROFILE" value="music_17dB_stereo" />
+    <ctl name="TAS25XX ASI Switch" value="0"/>
 
     <ctl name="HAC AMP EN" value="0" />
 
@@ -272,10 +273,12 @@
 
     <path name="speaker1-only">
         <ctl name="TAS25XX CODEC PROFILE" value="music_17dB_top" />
+        <ctl name="TAS25XX ASI Switch" value="1"/>
     </path>
 
     <path name="speaker2-only">
         <ctl name="TAS25XX CODEC PROFILE" value="music_17dB_bottom" />
+        <ctl name="TAS25XX ASI Switch" value="1"/>
     </path>
 
     <path name="headphones">
@@ -292,6 +295,7 @@
 
     <path name="speaker-all">
         <ctl name="TAS25XX CODEC PROFILE" value="music_17dB_stereo" />
+        <ctl name="TAS25XX ASI Switch" value="1"/>
     </path>
 
     <path name="mfg-playback hac">

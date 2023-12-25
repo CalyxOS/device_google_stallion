@@ -53,6 +53,7 @@
     <!-- default Tas2572's control value -->
     <ctl name="TAS25XX PLAYBACK_VOLUME_LEFT" value="47"/>
     <ctl name="TAS25XX PLAYBACK_VOLUME_RIGHT" value="47"/>
+    <ctl name="TAS25XX ASI Switch" value="0"/>
 
     <!-- default EP volume -->
     <ctl name="PCM Playback Switch" value="1"/>
@@ -615,10 +616,12 @@
     <!-- Rx device -->
     <path name="handset">
         <ctl name="TAS25XX CODEC PROFILE" value="music_17dB_top"/>
+        <ctl name="TAS25XX ASI Switch" value="1"/>
     </path>
 
     <path name="voice-handset">
         <ctl name="TAS25XX CODEC PROFILE" value="voice"/>
+        <ctl name="TAS25XX ASI Switch" value="1"/>
     </path>
 
     <path name="voice-hac">
@@ -630,6 +633,7 @@
 
     <path name="speaker">
         <ctl name="TAS25XX CODEC PROFILE" value="music_17dB_stereo"/>
+        <ctl name="TAS25XX ASI Switch" value="1"/>
     </path>
 
     <path name="speaker-post">
@@ -637,6 +641,7 @@
 
     <path name="voice-speaker">
         <ctl name="TAS25XX CODEC PROFILE" value="music_17dB_stereo"/>
+        <ctl name="TAS25XX ASI Switch" value="1"/>
     </path>
 
     <path name="voice-speaker-post">
@@ -650,6 +655,7 @@
 
     <path name="speaker-safe">
         <ctl name="TAS25XX CODEC PROFILE" value="music_17dB_bottom"/>
+        <ctl name="TAS25XX ASI Switch" value="1"/>
     </path>
 
     <path name="speaker-safe-post">
