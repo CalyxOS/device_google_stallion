@@ -19,6 +19,8 @@
     <ctl name="US Record Enable" value="0" />
     <ctl name="TAS25XX CODEC PROFILE" value="music_17dB_stereo" />
 
+    <ctl name="HAC AMP EN" value="0" />
+
     <path name="mfg-playback">
     </path>
 
@@ -290,6 +292,16 @@
 
     <path name="speaker-all">
         <ctl name="TAS25XX CODEC PROFILE" value="music_17dB_stereo" />
+    </path>
+
+    <path name="mfg-playback hac">
+        <ctl name="AoC Speaker Mixer ASP Mode" value="ASP_BYPASS" />
+        <ctl name="TDM_0_RX Mixer EP3" value="1" />
+    </path>
+
+    <path name="hac">
+        <ctl name="HAC AMP EN" value="1" />
+        <path name="mfg-playback hac" />
     </path>
 
     <path name="loopback-mic-speaker">
