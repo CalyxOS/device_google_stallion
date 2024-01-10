@@ -228,10 +228,11 @@
     <ctl name="BUILDIN_MIC_POWER_INIT" id="14" value="0x21"/>
     <ctl name="BUILDIN_MIC_POWER_INIT" id="15" value="0x14"/>
 
-    <ctl name="BUILDIN_MIC_POWER_INIT" id="8" value="0xff"/>
-    <ctl name="BUILDIN_MIC_POWER_INIT" id="9" value="0xff"/>
-    <ctl name="BUILDIN_MIC_POWER_INIT" id="10" value="0xff"/>
-    <ctl name="BUILDIN_MIC_POWER_INIT" id="11" value="0xff"/>
+    <ctl name="BUILDIN_MIC_POWER_INIT" id="8" value="0x2c"/>
+    <ctl name="BUILDIN_MIC_POWER_INIT" id="9" value="0xec"/>
+    <ctl name="BUILDIN_MIC_POWER_INIT" id="10" value="0x21"/>
+    <ctl name="BUILDIN_MIC_POWER_INIT" id="11" value="0x14"/>
+
     <ctl name="BUILDIN_MIC_POWER_INIT" id="16" value="0xff"/>
     <ctl name="BUILDIN_MIC_POWER_INIT" id="17" value="0xff"/>
     <ctl name="BUILDIN_MIC_POWER_INIT" id="18" value="0xff"/>
