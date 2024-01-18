@@ -129,6 +129,11 @@ PRODUCT_PACKAGES += \
 	libspatialaudio \
 	librondo
 
+# Sound Dose
+PRODUCT_PACKAGES += \
+	android.hardware.audio.sounddose-vendor-impl \
+	audio_sounddose_aoc
+
 # Bluetooth LE Audio
 PRODUCT_PRODUCT_PROPERTIES += \
 	ro.bluetooth.leaudio_switcher.supported=true \
