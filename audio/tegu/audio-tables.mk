@@ -16,6 +16,12 @@
 
 AUDIO_TABLE_FOLDER := tegu
 
+# Choose AIDL config by build flag.
+ifeq ($(USE_AUDIO_HAL_AIDL),true)
+PRODUCT_SOONG_NAMESPACES += device/google/tegu/audio/$(AUDIO_TABLE_FOLDER)/aidl_config
+PRODUCT_PACKAGES += audio_aidl_configs
+
+else
 # Platform Configuration for AudioHAL / SoundTriggerHAL
 PRODUCT_COPY_FILES += \
     device/google/tegu/audio/$(AUDIO_TABLE_FOLDER)/config/audio_policy_configuration_bluetooth_legacy_hal.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_bluetooth_legacy_hal.xml \
@@ -31,6 +37,7 @@ PRODUCT_COPY_FILES += \
 # Mixer Path Configuration for AudioHAL
 PRODUCT_COPY_FILES += \
     device/google/tegu/audio/$(AUDIO_TABLE_FOLDER)/config/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml
+endif
 
 # Speaker firmware files
 SPK_FIRMWARE_PATH := $(AUDIO_TABLE_FOLDER)/tas2572/fw/
@@ -39,33 +46,32 @@ SPK_FIRMWARE_FULL_PATH := device/google/tegu/audio/$(SPK_FIRMWARE_PATH)
 PRODUCT_COPY_FILES += $(call copy-files,$(wildcard  $(SPK_FIRMWARE_FULL_PATH)/*),$(TARGET_COPY_OUT_VENDOR)/firmware)
 
 # Audio tuning
-PRODUCT_COPY_FILES += \
-    device/google/tegu/audio/$(AUDIO_TABLE_FOLDER)/tuning/bluenote/recording.gatf:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/recording.gatf \
-    device/google/tegu/audio/$(AUDIO_TABLE_FOLDER)/tuning/fortemedia/BLUETOOTH.dat:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/BLUETOOTH.dat \
-    device/google/tegu/audio/$(AUDIO_TABLE_FOLDER)/tuning/fortemedia/HANDSFREE.dat:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/HANDSFREE.dat \
-    device/google/tegu/audio/$(AUDIO_TABLE_FOLDER)/tuning/fortemedia/HANDSET.dat:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/HANDSET.dat \
-    device/google/tegu/audio/$(AUDIO_TABLE_FOLDER)/tuning/fortemedia/HEADSET.dat:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/HEADSET.dat \
-    device/google/tegu/audio/$(AUDIO_TABLE_FOLDER)/tuning/fortemedia/mcps.dat:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/mcps.dat \
-    device/google/tegu/audio/$(AUDIO_TABLE_FOLDER)/tuning/waves/waves_config.ini:$(TARGET_COPY_OUT_VENDOR)/etc/waves_config.ini \
-    device/google/tegu/audio/$(AUDIO_TABLE_FOLDER)/tuning/waves/waves_preset.mps:$(TARGET_COPY_OUT_VENDOR)/etc/waves_preset.mps
+PRODUCT_SOONG_NAMESPACES += device/google/tegu/audio/$(AUDIO_TABLE_FOLDER)/tuning
+PRODUCT_PACKAGES += \
+    recording.gatf \
+    smartfeature.gstf \
+    BLUETOOTH.dat \
+    HANDSFREE.dat \
+    HANDSET.dat \
+    HEADSET.dat \
+    mcps.dat \
+    waves_config.ini \
+    waves_preset.mps \
+    compens_spk_l.conf \
+    compens_spk_r.conf
 
-# userdebug specific
+# userdebug and eng specific
+PRODUCT_PACKAGES_DEBUG += \
+    BLUETOOTH.mods \
+    HANDSFREE.mods \
+    HANDSET.mods \
+    HEADSET.mods \
+    template.xml \
+    tuning_constraints_combination.xml \
+    test_config.ini \
+    test_preset.mps
+
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
-PRODUCT_COPY_FILES += \
-    device/google/tegu/audio/$(AUDIO_TABLE_FOLDER)/tuning/fortemedia/BLUETOOTH.mods:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/BLUETOOTH.mods \
-    device/google/tegu/audio/$(AUDIO_TABLE_FOLDER)/tuning/fortemedia/HANDSFREE.mods:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/HANDSFREE.mods \
-    device/google/tegu/audio/$(AUDIO_TABLE_FOLDER)/tuning/fortemedia/HANDSET.mods:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/HANDSET.mods \
-    device/google/tegu/audio/$(AUDIO_TABLE_FOLDER)/tuning/fortemedia/HEADSET.mods:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/HEADSET.mods
-
-#Bluenote files
-PRODUCT_COPY_FILES += \
-    device/google/tegu/audio/$(AUDIO_TABLE_FOLDER)/tuning/bluenote/template.xml:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/template.xml \
-    device/google/tegu/audio/$(AUDIO_TABLE_FOLDER)/tuning/bluenote/tuning_constraints_combination.xml:$(TARGET_COPY_OUT_VENDOR)/etc/aoc/tuning_constraints_combination.xml
-
-PRODUCT_COPY_FILES += \
-    device/google/tegu/audio/$(AUDIO_TABLE_FOLDER)/tuning/waves/tests/test_config.ini:$(TARGET_COPY_OUT_VENDOR)/etc/test_config.ini \
-    device/google/tegu/audio/$(AUDIO_TABLE_FOLDER)/tuning/waves/tests/test_preset.mps:$(TARGET_COPY_OUT_VENDOR)/etc/test_preset.mps
-
 # Mixer Path Configuration for Audio Speaker Calibration Tool pixel_ti_cal
 PRODUCT_COPY_FILES += \
     device/google/tegu/audio/$(AUDIO_TABLE_FOLDER)/tas2572/ti_cal_mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/ti_cal_mixer_paths.xml
