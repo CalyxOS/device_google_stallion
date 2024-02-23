@@ -201,9 +201,7 @@ PRODUCT_SOONG_NAMESPACES += \
 # Location
 include device/google/tegu/location/gnssd/device-gnss.mk
 
-# Set zram size
 PRODUCT_VENDOR_PROPERTIES += \
-	vendor.zram.size=3g \
 	persist.device_config.configuration.disable_rescue_party=true
 
 PRODUCT_VENDOR_PROPERTIES += \
