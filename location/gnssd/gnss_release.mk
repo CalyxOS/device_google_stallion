@@ -2,7 +2,7 @@
 GPS_ROOT := device/google/tegu/location/gnssd
 
 # Enable pixel gnss hal service
-# include $(GPS_ROOT)/pixel_gnss_hal.mk
+include device/google/gs-common/gps/pixel/pixel_gnss_hal.mk
 
 
 PRODUCT_PACKAGES += \
@@ -25,6 +25,7 @@ PRODUCT_PACKAGES += \
     libmptool_log \
     libmptool_utils
 
+# factory libraries
 PRODUCT_COPY_FILES += \
     $(GPS_ROOT)/release/sctd.json:vendor/etc/sctd.json \
     $(GPS_ROOT)/release/spad.json:vendor/etc/spad.json \
@@ -46,5 +47,3 @@ endif
 
 BOARD_VENDOR_SEPOLICY_DIRS += device/google/gs-common/gps/brcm/sepolicy
 BOARD_VENDOR_SEPOLICY_DIRS += device/google/gs-common/gps/lsi/sepolicy
-
-BOARD_VENDOR_SEPOLICY_DIRS += device/google/gs-common/gps/pixel/sepolicy
