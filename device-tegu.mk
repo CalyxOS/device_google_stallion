@@ -199,7 +199,7 @@ PRODUCT_SOONG_NAMESPACES += \
     device/google/tegu/uwb
 
 # Location
-include device/google/tegu/location/gnssd/device-gnss.mk
+include device/google/tegu/location/device-gnss.mk
 
 PRODUCT_VENDOR_PROPERTIES += \
 	persist.device_config.configuration.disable_rescue_party=true
