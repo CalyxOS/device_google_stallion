@@ -51,8 +51,8 @@
     <ctl name="RX Slots" id="1" value="3"/>
 
     <!-- default Tas2572's control value -->
-    <ctl name="TAS25XX PLAYBACK_VOLUME_LEFT" value="47"/>
-    <ctl name="TAS25XX PLAYBACK_VOLUME_RIGHT" value="47"/>
+    <ctl name="TAS25XX PLAYBACK_VOLUME_LEFT" value="55"/>
+    <ctl name="TAS25XX PLAYBACK_VOLUME_RIGHT" value="55"/>
     <ctl name="TAS25XX ASI Switch" value="0"/>
     <ctl name="TAS25XX CODEC PROFILE" value="default"/>
 

@@ -50,6 +50,7 @@
     <device name="speaker" codec="tas25xx">
       <argument name="SpeakerNum" value="2" />
       <argument name="AcousticShockProtection" />
+      <argument name="EnableProtection" />
     </device>
   </devices>
 
