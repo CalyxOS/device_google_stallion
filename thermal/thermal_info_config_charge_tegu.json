@@ -160,24 +160,10 @@
                     "PowerRail": "PARTIAL_SYSTEM_POWER",
                     "PowerWeight": [0.12, 0.12, 0.06, 0.06, 0.24, 0.24, 0.24]
                 }
-            ],
-            "BindedCdevInfo": [
-                {
-                    "CdevRequest": "chg_mdis",
-                    "CdevWeightForPID": [1, 1, 1, 1, 1, 1, 1],
-                    "MaxReleaseStep": 1,
-                    "MaxThrottleStep": 1,
-                    "CdevCeiling": [0, 25, 25, 25, 26, 26, 26],
-                    "LimitInfo": [0, 0, 1, 1, 1, 26, 26]
-                }
             ]
         }
     ],
     "CoolingDevices":[
-        {
-            "Name":"chg_mdis",
-            "Type":"BATTERY"
-        },
         {
             "Name":"usbc-port",
             "Type":"BATTERY"
