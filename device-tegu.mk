@@ -41,9 +41,9 @@ include device/google/gs-common/touch/syna/syna20.mk
 $(warning camera_hardware set to zuma on zumapro target)
 $(call soong_config_set,lyric,camera_hardware,tegu)
 $(warning tuning_product set to zuma on zumapro target)
-$(call soong_config_set,lyric,tuning_product,ripcurrent)
+$(call soong_config_set,lyric,tuning_product,tegu)
 $(warning target_device set to zuma on zumapro target)
-$(call soong_config_set,google3a_config,target_device,ripcurrent)
+$(call soong_config_set,google3a_config,target_device,tegu)
 
 # display
 DEVICE_PACKAGE_OVERLAYS += device/google/tegu/tegu/overlay
@@ -199,7 +199,7 @@ PRODUCT_SOONG_NAMESPACES += \
     device/google/tegu/uwb
 
 # Location
-include device/google/tegu/location/gnssd/device-gnss.mk
+include device/google/tegu/location/device-gnss.mk
 
 PRODUCT_VENDOR_PROPERTIES += \
 	persist.device_config.configuration.disable_rescue_party=true
