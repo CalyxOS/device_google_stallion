@@ -16,4 +16,4 @@ else
 endif
 
 # include pixel gnss hal service
-include device/google/gs-common/gps/pixel/pixel_gnss_hal.mk
+include vendor/google/gnss/aidl_service/pixel_gnss_hal.mk
