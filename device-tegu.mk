@@ -30,6 +30,9 @@ $(call inherit-product-if-exists, vendor/google_devices/zumapro/proprietary/devi
 $(call inherit-product-if-exists, vendor/google_devices/tegu/proprietary/tegu/device-vendor-tegu.mk)
 $(call inherit-product-if-exists, vendor/qorvo/uwb/qm35-hal/Device.mk)
 
+# display
+DEVICE_PACKAGE_OVERLAYS += device/google/tegu/tegu/overlay
+
 include device/google/tegu/audio/tegu/audio-tables.mk
 include device/google/zumapro/device-shipping-common.mk
 include hardware/google/pixel/vibrator/cs40l26/device.mk
@@ -45,8 +48,6 @@ $(call soong_config_set,lyric,tuning_product,ripcurrent)
 $(warning target_device set to zuma on zumapro target)
 $(call soong_config_set,google3a_config,target_device,ripcurrent)
 
-# display
-DEVICE_PACKAGE_OVERLAYS += device/google/tegu/tegu/overlay
 
 # Init files
 PRODUCT_COPY_FILES += \
