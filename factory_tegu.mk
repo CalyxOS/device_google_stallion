@@ -20,6 +20,9 @@ $(call inherit-product, device/google/zumapro/factory_common.mk)
 $(call inherit-product, device/google/tegu/device-tegu.mk)
 include device/google/tegu/audio/tegu/factory-audio-tables.mk
 
+# Factory binaries for GPS
+include device/google/tegu/location/factory-gnss.mk
+
 PRODUCT_NAME := factory_tegu
 PRODUCT_DEVICE := tegu
 PRODUCT_MODEL := Factory build on Tegu
