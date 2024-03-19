@@ -33,6 +33,10 @@ $(call inherit-product-if-exists, vendor/qorvo/uwb/qm35-hal/Device.mk)
 # display
 DEVICE_PACKAGE_OVERLAYS += device/google/tegu/tegu/overlay
 
+ifeq ($(RELEASE_PIXEL_AIDL_AUDIO_HAL),true)
+USE_AUDIO_HAL_AIDL := true
+endif
+
 include device/google/tegu/audio/tegu/audio-tables.mk
 include device/google/zumapro/device-shipping-common.mk
 include hardware/google/pixel/vibrator/cs40l26/device.mk
@@ -40,12 +44,8 @@ include device/google/gs-common/bcmbt/bluetooth.mk
 include device/google/gs-common/touch/syna/syna20.mk
 
 # go/lyric-soong-variables
-# # TODO(298309659): Needs to check with owner later
-$(warning camera_hardware set to zuma on zumapro target)
 $(call soong_config_set,lyric,camera_hardware,tegu)
-$(warning tuning_product set to zuma on zumapro target)
 $(call soong_config_set,lyric,tuning_product,tegu)
-$(warning target_device set to zuma on zumapro target)
 $(call soong_config_set,google3a_config,target_device,tegu)
 
 
