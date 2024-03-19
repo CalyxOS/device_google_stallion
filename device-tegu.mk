@@ -44,12 +44,8 @@ include device/google/gs-common/bcmbt/bluetooth.mk
 include device/google/gs-common/touch/syna/syna20.mk
 
 # go/lyric-soong-variables
-# # TODO(298309659): Needs to check with owner later
-$(warning camera_hardware set to zuma on zumapro target)
 $(call soong_config_set,lyric,camera_hardware,tegu)
-$(warning tuning_product set to zuma on zumapro target)
 $(call soong_config_set,lyric,tuning_product,tegu)
-$(warning target_device set to zuma on zumapro target)
 $(call soong_config_set,google3a_config,target_device,tegu)
 
 
