@@ -22,7 +22,7 @@
 <resources>
     <!-- Configure 13px of extra protection around the front-facing camera -->
     <string translatable="false" name="config_frontBuiltInDisplayCutoutProtection">
-        m 585.74,68.4 a 49.16,60.6 0 0 0 -91.47,0 49.16,60.6 0 0 0 91.47,0 Z
+        m 594.5,86 a 54.5,54.5 0 0 0 -109,0 54.5,54.5 0 0 0 109,0 z
     </string>
 
     <!-- Camera 1 is the front camera -->
@@ -33,6 +33,13 @@
     <string translatable="false" name="config_cameraProtectionExcludedPackages">com.google.android.as</string>
 
     <bool name="config_enableDisplayCutoutProtection">true</bool>
+
+    <!-- The properties of the face auth front camera in pixels -->
+    <integer-array name="config_face_auth_props">
+        <item>540</item> <!-- sensorLocationX -->
+        <item>86</item> <!-- sensorLocationY -->
+        <item>54</item> <!--sensorRadius -->
+    </integer-array>
 
     <!-- Type of a sensor that provides a low-power estimate of the desired display
          brightness, suitable to listen to while the device is asleep (e.g. during
