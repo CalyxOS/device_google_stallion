@@ -1247,7 +1247,7 @@
   <!-- Tx device -->
   <path name="builtin-mic-id-capture-list">
     <ctl name="BUILDIN MIC ID CAPTURE LIST" id="0" value="0" />
-    <ctl name="BUILDIN MIC ID CAPTURE LIST" id="1" value="2" />
+    <ctl name="BUILDIN MIC ID CAPTURE LIST" id="1" value="1" />
     <ctl name="BUILDIN MIC ID CAPTURE LIST" id="2" value="-1" />
     <ctl name="BUILDIN MIC ID CAPTURE LIST" id="3" value="-1" />
   </path>
