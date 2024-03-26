@@ -1349,17 +1349,19 @@
   <!-- Battery throttle enabled: "adapted-speaker-battery-throttled"         -->
   <!-- Acoustic shock enabled: "adapted-speaker-acoustic-shock"              -->
   <!-- Both are enabled: "adapted-speaker-battery-throttled-acoustic-shock"  -->
+  <!-- New current limit setting range is from 0 ~ 36 (1.5A ~ 5.1A)          -->
+  <!-- Formula to convert index to current, Value = 1.5A + value * 0.1A      -->
   <path name="adapted-speaker">
-    <ctl name="TAS25XX BOOST CURRENT LEFT" value="10" />
-    <ctl name="TAS25XX BOOST CURRENT RIGHT" value="10" />
+    <ctl name="TAS25XX BOOST CURRENT LEFT" value="25" />
+    <ctl name="TAS25XX BOOST CURRENT RIGHT" value="25" />
   </path>
   <path name="adapted-speaker-battery-throttled">
-    <ctl name="TAS25XX BOOST CURRENT LEFT" value="10" />
-    <ctl name="TAS25XX BOOST CURRENT RIGHT" value="10" />
+    <ctl name="TAS25XX BOOST CURRENT LEFT" value="25" />
+    <ctl name="TAS25XX BOOST CURRENT RIGHT" value="25" />
   </path>
 
   <path name="adapted-speaker-safe">
-    <ctl name="TAS25XX BOOST CURRENT RIGHT" value="10" />
+    <ctl name="TAS25XX BOOST CURRENT RIGHT" value="25" />
   </path>
   <path name="adapted-speaker-safe-battery-throttled">
     <path name="adapted-speaker-safe" />
@@ -1373,15 +1375,15 @@
   </path>
 
   <path name="adapted-voice-speaker">
-    <ctl name="TAS25XX BOOST CURRENT LEFT" value="10" />
-    <ctl name="TAS25XX BOOST CURRENT RIGHT" value="10" />
+    <ctl name="TAS25XX BOOST CURRENT LEFT" value="25" />
+    <ctl name="TAS25XX BOOST CURRENT RIGHT" value="25" />
   </path>
   <path name="adapted-voice-speaker-battery-throttled">
     <path name="adapted-voice-speaker" />
   </path>
   <path name="adapted-voice-speaker-acoustic-shock">
-    <ctl name="TAS25XX BOOST CURRENT LEFT" value="10" />
-    <ctl name="TAS25XX BOOST CURRENT RIGHT" value="10" />
+    <ctl name="TAS25XX BOOST CURRENT LEFT" value="25" />
+    <ctl name="TAS25XX BOOST CURRENT RIGHT" value="25" />
     <ctl name="TAS25XX PLAYBACK_VOLUME_LEFT" value="0"/>
   </path>
 
@@ -1390,7 +1392,7 @@
   </path>
 
   <path name="adapted-voice-earpiece">
-    <ctl name="TAS25XX BOOST CURRENT LEFT" value="10" />
+    <ctl name="TAS25XX BOOST CURRENT LEFT" value="25" />
   </path>
   <path name="adapted-voice-earpiece-battery-throttled">
     <path name="adapted-voice-earpiece" />
