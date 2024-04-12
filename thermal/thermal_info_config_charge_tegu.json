@@ -86,79 +86,56 @@
             "PassiveDelay":7000
         },
         {
-            "Name":"VIRTUAL-SKIN-CHARGE-SUB-0",
-            "Type":"UNKNOWN",
-            "Hidden":true,
-            "VirtualSensor":true,
-            "Formula":"WEIGHTED_AVG",
-            "Combination":["north_therm", "rfpa_therm", "soc_therm", "charging_therm", "disp_therm", "battery", "btmspkr_therm", "quiet_therm", "usb_pwr_therm"],
-            "Coefficient":[0.04, 0.16, 0.19, 0.16, 0.17, 0, 0.01, 0.24, 0],
-            "Offset":-820,
-            "Multiplier":0.001
-        },
-        {
-            "Name":"VIRTUAL-SKIN-CHARGE-SUB-1",
-            "Type":"UNKNOWN",
-            "Hidden":true,
-            "VirtualSensor":true,
-            "Formula":"WEIGHTED_AVG",
-            "Combination":["north_therm", "rfpa_therm", "soc_therm", "charging_therm", "disp_therm", "battery", "btmspkr_therm", "quiet_therm", "usb_pwr_therm"],
-            "Coefficient":[0.02, 0.01, 0.04, 0.04, 0.4, 0.14, 0.1, 0.02, 0.12],
-            "Offset":1840,
-            "Multiplier":0.001
-        },
-        {
-            "Name":"VIRTUAL-SKIN-CHARGE-SUB-2",
-            "Type":"UNKNOWN",
-            "Hidden":true,
-            "VirtualSensor":true,
-            "Formula":"WEIGHTED_AVG",
-            "Combination":["north_therm", "rfpa_therm", "soc_therm", "charging_therm", "disp_therm", "battery", "btmspkr_therm", "quiet_therm", "usb_pwr_therm"],
-            "Coefficient":[0.18, 0.1, 0.15, 0.13, 0.22, 0.16, 0.02, 0.04, 0.01],
-            "Offset":-2810,
-            "Multiplier":0.001
-        },
-        {
-            "Name":"VIRTUAL-SKIN-CHARGE-SUB-3",
-            "Type":"UNKNOWN",
-            "Hidden":true,
-            "VirtualSensor":true,
-            "Formula":"WEIGHTED_AVG",
-            "Combination":["north_therm", "rfpa_therm", "soc_therm", "charging_therm", "disp_therm", "battery", "btmspkr_therm", "quiet_therm", "usb_pwr_therm"],
-            "Coefficient":[0.1, 0.16, 0.11, 0.19, 0.26, 0, 0, 0.11, 0],
-            "Offset":1140,
-            "Multiplier":0.001
+            "Name": "VIRTUAL-SKIN-CHARGE-SUB-0",
+            "Type": "UNKNOWN",
+            "Hidden": true,
+            "VirtualSensor": true,
+            "Formula": "WEIGHTED_AVG",
+            "Combination": ["north_therm", "soc_therm", "charging_therm", "disp_therm", "battery", "quiet_therm", "usb_pwr_therm", "rfpa_therm", "btmspkr_therm"],
+            "Coefficient": [0, 0, -0.155, 0, 0, 0.503, 0, 0.559, 0],
+            "Offset": 2614,
+            "Multiplier": 0.001
         },
         {
             "Name":"VIRTUAL-SKIN-CHARGE",
             "Type":"UNKNOWN",
-            "Version":"4.0",
+            "Version":"1.0",
             "VirtualSensor":true,
-            "TriggerSensor":["north_therm", "rfpa_therm", "soc_therm", "charging_therm", "disp_therm", "quiet_therm", "usb_pwr_therm"],
+            "TriggerSensor":"charging_therm",
             "Formula":"MAXIMUM",
-            "Combination":["VIRTUAL-SKIN-CHARGE-SUB-0", "VIRTUAL-SKIN-CHARGE-SUB-1", "VIRTUAL-SKIN-CHARGE-SUB-2", "VIRTUAL-SKIN-CHARGE-SUB-3"],
-            "Coefficient":[1.0, 1.0, 1.0, 1.0],
-            "HotThreshold":["NAN", 44.0, 48.0, 51.0, 55.0, 57.0, 75.0],
+            "Combination":["VIRTUAL-SKIN-CHARGE-SUB-0"],
+            "Coefficient":[1.0],
+            "HotThreshold":["NAN", 34.0, 38.0, 41.0, 45.0, 47.0, 55.0],
             "HotHysteresis":[0.0, 1.9, 3.9, 2.9, 3.9, 1.9, 1.9],
             "Multiplier":0.001,
             "PollingDelay":60000,
             "PassiveDelay":7000,
             "PIDInfo": {
-                "K_Po":["NAN", "NAN", 119, "NAN", "NAN", "NAN", "NAN"],
-                "K_Pu":["NAN", "NAN", 119, "NAN", "NAN", "NAN", "NAN"],
-                "K_I":["NAN", "NAN", 25, "NAN", "NAN", "NAN", "NAN"],
+                "K_Po":["NAN", "NAN", 600, "NAN", "NAN", "NAN", "NAN"],
+                "K_Pu":["NAN", "NAN", 400, "NAN", "NAN", "NAN", "NAN"],
+                "K_I":["NAN", "NAN", 21, "NAN", "NAN", "NAN", "NAN"],
                 "K_D":["NAN", "NAN", 0, "NAN", "NAN", "NAN", "NAN"],
-                "I_Max":["NAN", "NAN", 1302, "NAN", "NAN", "NAN", "NAN"],
-                "S_Power":["NAN", "NAN", 2527, "NAN", "NAN", "NAN", "NAN"],
-                "MinAllocPower":["NAN", "NAN", 0, "NAN", "NAN", "NAN", "NAN"],
-                "MaxAllocPower":["NAN", "NAN", 6219, "NAN", "NAN", "NAN", "NAN"],
+                "I_Max":["NAN", "NAN", 1600, "NAN", "NAN", "NAN", "NAN"],
+                "S_Power":["NAN", "NAN", 2000, "NAN", "NAN", "NAN", "NAN"],
+                "MinAllocPower":["NAN", "NAN", 300, "NAN", "NAN", "NAN", "NAN"],
+                "MaxAllocPower":["NAN", "NAN", 6000, "NAN", "NAN", "NAN", "NAN"],
                 "I_Cutoff":["NAN", "NAN", 6, "NAN", "NAN", "NAN", "NAN"],
-                "I_Default":1302
+                "I_Default":1600
             },
             "ExcludedPowerInfo": [
                 {
                     "PowerRail": "PARTIAL_SYSTEM_POWER",
-                    "PowerWeight": [0.12, 0.12, 0.06, 0.06, 0.24, 0.24, 0.24]
+                    "PowerWeight": [0.1, 0.1, 0.05, 0.05, 0.2, 0.2, 0.2]
+                }
+            ],
+            "BindedCdevInfo": [
+                {
+                    "CdevRequest": "fcc",
+                    "CdevWeightForPID": [1, 1, 1, 1, 1, 1, 1],
+                    "MaxReleaseStep": 1,
+                    "MaxThrottleStep": 1,
+                    "CdevCeiling": [0, 25, 25, 25, 26, 26, 26],
+                    "LimitInfo": [0, 0, 0, 0, 0, 26, 26]
                 }
             ]
         }
@@ -166,6 +143,14 @@
     "CoolingDevices":[
         {
             "Name":"usbc-port",
+            "Type":"BATTERY"
+        },
+        {
+            "Name":"fcc",
+            "Type":"BATTERY"
+        },
+        {
+            "Name":"dc_icl",
             "Type":"BATTERY"
         }
     ],
