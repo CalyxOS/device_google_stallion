@@ -82,6 +82,15 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.se.omapi.uicc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.se.omapi.uicc.xml \
 	device/google/tegu/nfc/libse-gto-hal.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libse-gto-hal.conf
 
+# Thermal VT estimator
+PRODUCT_PACKAGES += \
+    libthermal_tflite_wrapper
+
+# Thermal Model
+TARGET_VENDOR_THERMAL_CONFIG_PATH := device/google/tegu/thermal
+PRODUCT_COPY_FILES += \
+	$(TARGET_VENDOR_THERMAL_CONFIG_PATH)/vt_estimation_model_tegu.tflite:$(TARGET_COPY_OUT_VENDOR)/etc/vt_estimation_model.tflite \
+
 # Bluetooth HAL
 PRODUCT_COPY_FILES += \
 	device/google/tegu/bluetooth/bt_vendor_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth/bt_vendor_overlay.conf
