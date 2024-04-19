@@ -48,6 +48,7 @@ $(call soong_config_set,lyric,camera_hardware,tegu)
 $(call soong_config_set,lyric,tuning_product,tegu)
 $(call soong_config_set,google3a_config,target_device,tegu)
 
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.ignore_hdr_camera_layers=true
 
 # Init files
 PRODUCT_COPY_FILES += \
