@@ -19,4 +19,14 @@
   <bool name="tag_intent_app_pref_supported">true</bool>
   <bool name="nfc_observe_mode_supported">true</bool>
   <bool name="enable_secure_nfc_support">true</bool>
+  <!-- NFC Antenna Location API -->
+  <integer name="device_width">72</integer>
+  <integer name="device_height">154</integer>
+  <bool name="device_foldable">false</bool>
+  <integer-array name="antenna_x">
+    <item>36</item>
+  </integer-array>
+  <integer-array name="antenna_y">
+    <item>104</item>
+  </integer-array>
 </resources>
