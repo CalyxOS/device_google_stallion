@@ -14,8 +14,13 @@
 # limitations under the License.
 #
 
-TARGET_KERNEL_DIR ?= device/google/tegu-kernel
-TARGET_BOARD_KERNEL_HEADERS := device/google/tegu-kernel/kernel-headers
+ifdef RELEASE_GOOGLE_TEGU_KERNEL_DIR
+TARGET_KERNEL_DIR ?= $(RELEASE_GOOGLE_TEGU_KERNEL_DIR)
+TARGET_BOARD_KERNEL_HEADERS ?= $(RELEASE_GOOGLE_TEGU_KERNEL_DIR)/kernel-headers
+else
+TARGET_KERNEL_DIR ?= device/google/tegu-kernels/6.1/25D4
+TARGET_BOARD_KERNEL_HEADERS ?= device/google/tegu-kernels/6.1/25D4/kernel-headers
+endif
 
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
     USE_UWBFIELDTESTQM := true
