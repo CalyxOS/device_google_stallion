@@ -1,5 +1,5 @@
 # include common gnss binaries
-include vendor/samsung_slsi/gps/s5300/gnss_release.mk
+-include vendor/samsung_slsi/gps/s5300/gnss_release.mk
 
 # include customized gps config files
 PRODUCT_COPY_FILES += \
@@ -16,4 +16,8 @@ else
 endif
 
 # include pixel gnss hal service
-include vendor/google/gnss/aidl_service/pixel_gnss_hal.mk
+-include vendor/google_devices/zumapro/proprietary/gps/pixel_gnss_hal.mk
+
+# sepolicy
+BOARD_VENDOR_SEPOLICY_DIRS += device/google/gs-common/gps/lsi/sepolicy
+BOARD_VENDOR_SEPOLICY_DIRS += device/google/gs-common/gps/brcm/sepolicy
