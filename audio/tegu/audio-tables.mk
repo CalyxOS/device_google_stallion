@@ -66,4 +66,8 @@ PRODUCT_COPY_FILES += \
     device/google/tegu/audio/$(AUDIO_TABLE_FOLDER)/tuning/waves/tests/test_config.ini:$(TARGET_COPY_OUT_VENDOR)/etc/test_config.ini \
     device/google/tegu/audio/$(AUDIO_TABLE_FOLDER)/tuning/waves/tests/test_preset.mps:$(TARGET_COPY_OUT_VENDOR)/etc/test_preset.mps
 
+# Mixer Path Configuration for Audio Speaker Calibration Tool pixel_ti_cal
+PRODUCT_COPY_FILES += \
+    device/google/tegu/audio/$(AUDIO_TABLE_FOLDER)/tas2572/ti_cal_mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/ti_cal_mixer_paths.xml
+
 endif

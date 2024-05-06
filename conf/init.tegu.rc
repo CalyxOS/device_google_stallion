@@ -35,3 +35,14 @@ on post-fs-data
 # Bluetooth
 on post-fs-data
     chown bluetooth system /proc/bluetooth/timesync
+
+# ODPM
+on early-boot && property:ro.boot.hardware.sku=GXQ96
+    write /sys/bus/iio/devices/iio:device0/enabled_rails "CH11=BUCK12S"
+on early-boot && property:ro.boot.hardware.sku=G3Y12
+    write /sys/bus/iio/devices/iio:device0/enabled_rails "CH11=BUCK12S"
+
+# Fingerprint
+on property:init.svc.vendor.fingerprint-goodix=running && \
+   property:vendor.fingerprint.allowed.running=""
+    stop vendor.fingerprint-goodix
