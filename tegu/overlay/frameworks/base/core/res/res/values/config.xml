@@ -207,4 +207,10 @@
 
     <!-- Type of the udfps long press sensor. Empty if long press is not supported. -->
     <string name="config_dozeUdfpsLongPressSensorType" translatable="false">com.google.sensor.long_press</string>
+
+    <!-- Allow the GPS_PROVIDER to be replaced by the location provider app at run-time. -->
+    <bool name="config_useGnssHardwareProvider" translatable="false">false</bool>
+    <!-- Package name providing GNSS location support. Used only when
+         config_useGnssHardwareProvider is false. -->
+    <string name="config_gnssLocationProviderPackageName" translatable="false">com.google.android.gms</string>
 </resources>

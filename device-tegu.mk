@@ -272,6 +272,14 @@ PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.udfps.als_feed_forward_supported=true \
     persist.vendor.udfps.lhbm_controlled_in_hal_supported=true
 
+# OIS with system imu
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.camera.ois_with_system_imu=true
+
+# Camera Vendor property
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.camera.front_720P_always_binning=true
+
 # Display LBE
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += vendor.display.lbe.supported=1
 
