@@ -216,6 +216,16 @@
       "ResetOnInit": true
     },
     {
+      "Name": "AutoPreferIdle",
+      "Path": "/proc/vendor_sched/auto_prefer_idle",
+      "Values": [
+        "0",
+        "1"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {
       "Name": "CPUUtilThreshold",
       "Path": "/proc/vendor_sched/util_threshold",
       "Values": [
@@ -261,6 +271,15 @@
     {
       "Name": "CPUSkipMask",
       "Path": "/proc/vendor_sched/cpu_skip_mask",
+      "Values": [
+        "0x0",
+        "0x80"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "SysGroupCfsSkipMask",
+      "Path": "/proc/vendor_sched/groups/sys/group_cfs_skip_mask",
       "Values": [
         "0x0",
         "0x80"
@@ -836,7 +855,19 @@
     },
     {
       "PowerHint": "LAUNCH",
+      "Node": "CPUSkipMask",
+      "Duration": 5000,
+      "Value": "0x0"
+    },
+    {
+      "PowerHint": "LAUNCH",
       "Node": "ReducePreferIdle",
+      "Duration": 5000,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "AutoPreferIdle",
       "Duration": 5000,
       "Value": "0"
     },
@@ -977,6 +1008,12 @@
     },
     {
       "PowerHint": "LAUNCH_EXTEND",
+      "Node": "CPUSkipMask",
+      "Duration": 2000,
+      "Value": "0x0"
+    },
+    {
+      "PowerHint": "LAUNCH_EXTEND",
       "Node": "CPUBigClusterMaxFreq",
       "Duration": 2000,
       "Value": "9999999"
@@ -1054,6 +1091,12 @@
       "Value": "1"
     },
     {
+      "PowerHint": "LAUNCH_EXTEND",
+      "Node": "AutoPreferIdle",
+      "Duration": 2000,
+      "Value": "0"
+    },
+    {
       "PowerHint": "LAUNCH_PMU",
       "Node": "PMU_POLL",
       "Duration": 3000,
@@ -1062,6 +1105,12 @@
     {
       "PowerHint": "DISPLAY_CHANGE",
       "Node": "ReducePreferIdle",
+      "Duration": 5000,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "DISPLAY_CHANGE",
+      "Node": "AutoPreferIdle",
       "Duration": 5000,
       "Value": "0"
     },
@@ -1227,9 +1276,27 @@
     },
     {
       "PowerHint": "DISPLAY_INACTIVE",
+      "Node": "AutoPreferIdle",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "DISPLAY_INACTIVE",
       "Node": "FGPreferIdle",
       "Duration": 0,
       "Value": "0"
+    },
+    {
+      "PowerHint": "DISPLAY_INACTIVE",
+      "Node": "SysGroupCfsSkipMask",
+      "Duration": 0,
+      "Value": "0x80"
+    },
+    {
+      "PowerHint": "CAMERA_LAUNCH",
+      "Node": "CPUSkipMask",
+      "Duration": 1000,
+      "Value": "0x0"
     },
     {
       "PowerHint": "CAMERA_LAUNCH",
@@ -1314,6 +1381,12 @@
       "Node": "CDPreferIdle",
       "Duration": 1000,
       "Value": "1"
+    },
+    {
+      "PowerHint": "CAMERA_LAUNCH",
+      "Node": "AutoPreferIdle",
+      "Duration": 1000,
+      "Value": "0"
     },
     {
       "PowerHint": "CAMERA_LAUNCH",
@@ -1476,6 +1549,12 @@
       "Node": "CDPreferIdle",
       "Duration": 100,
       "Value": "1"
+    },
+    {
+      "PowerHint": "CAMERA_ZOOMING_BOOST",
+      "Node": "AutoPreferIdle",
+      "Duration": 100,
+      "Value": "0"
     },
     {
       "PowerHint": "CAMERA_ZOOMING_BOOST",
@@ -1773,6 +1852,12 @@
     },
     {
       "PowerHint": "CAMERA_STREAMING_EXTREME",
+      "Node": "AutoPreferIdle",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_EXTREME",
       "Node": "CDHighCpusetCpus",
       "Duration": 0,
       "Value": "7"
@@ -1806,6 +1891,12 @@
       "Node": "VIRTUAL-SKIN-CPU-HIGH",
       "Duration": 0,
       "Value": "camera"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_EXTREME",
+      "Node": "CPUSkipMask",
+      "Duration": 0,
+      "Value": "0x0"
     },
     {
       "PowerHint": "CAMERA_STREAMING_HIGH",
@@ -1923,6 +2014,12 @@
     },
     {
       "PowerHint": "CAMERA_STREAMING_HIGH",
+      "Node": "AutoPreferIdle",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_HIGH",
       "Node": "CDHighCpusetCpus",
       "Duration": 0,
       "Value": "7"
@@ -1968,6 +2065,12 @@
       "Node": "CPUSkipMask",
       "Duration": 0,
       "Value": "0x80"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_STANDARD",
+      "Node": "AutoPreferIdle",
+      "Duration": 0,
+      "Value": "0"
     },
     {
       "PowerHint": "CAMERA_STREAMING_STANDARD",
@@ -2109,6 +2212,12 @@
     },
     {
       "PowerHint": "CAMERA_STREAMING_LOW",
+      "Node": "AutoPreferIdle",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_LOW",
       "Node": "CPUDVFSHeadroom",
       "Duration": 0,
       "Value": "1280"
@@ -2192,6 +2301,12 @@
       "Value": "4-7"
     },
     {
+      "PowerHint": "CAMERA_STREAMING_LOW",
+      "Node": "CPUSkipMask",
+      "Duration": 0,
+      "Value": "0x0"
+    },
+    {
       "PowerHint": "CAMERA_STREAMING_VIDEO_CALL",
       "Node": "PowerHALCameraRunning",
       "Duration": 0,
@@ -2218,6 +2333,12 @@
     {
       "PowerHint": "CAMERA_STREAMING_VIDEO_CALL",
       "Node": "TAPreferIdle",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_VIDEO_CALL",
+      "Node": "AutoPreferIdle",
       "Duration": 0,
       "Value": "0"
     },
@@ -2328,6 +2449,12 @@
       "Node": "PMU_LIT_SPC_THRESHOLD",
       "Duration": 0,
       "Value": "30"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_VIDEO_CALL",
+      "Node": "CPUSkipMask",
+      "Duration": 0,
+      "Value": "0x0"
     },
     {
       "PowerHint": "CAMERA_VIDEO_RECORDING",
@@ -2675,6 +2802,12 @@
     {
       "PowerHint": "GAME",
       "Node": "TAPreferIdle",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "GAME",
+      "Node": "AutoPreferIdle",
       "Duration": 0,
       "Value": "0"
     },
