@@ -37,3 +37,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += fatp_tg4_wide_hat_tool
 
 PRODUCT_WITHOUT_TTS_VOICE_PACKS := true
+
+# preloaded_nanoapps.json
+PRODUCT_SOONG_NAMESPACES += vendor/google_contexthub/devices/factory
