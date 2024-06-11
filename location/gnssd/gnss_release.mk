@@ -45,5 +45,4 @@ else
         $(GPS_ROOT)/release/gps_user.cfg:vendor/etc/gnss/gps.cfg
 endif
 
-BOARD_VENDOR_SEPOLICY_DIRS += device/google/gs-common/gps/brcm/sepolicy
 BOARD_VENDOR_SEPOLICY_DIRS += device/google/gs-common/gps/lsi/sepolicy
