@@ -218,7 +218,7 @@
             "Formula":"MAXIMUM",
             "Combination":["VIRTUAL-SKIN-LEGACY"],
             "Coefficient":[1.0],
-            "HotThreshold":["NAN", 39.0, 43.0, 45.0, 46.5, 52.0, 55.0],
+            "HotThreshold":["NAN", 39.0, 43.0, 45.0, 46.5, 52.0, 60.0],
             "HotHysteresis":[0.0, 1.9, 1.9, 1.9, 1.4, 1.9, 1.9],
             "Multiplier":0.001,
             "SendCallback":true,
@@ -240,7 +240,7 @@
             "Formula":"MAXIMUM",
             "Combination":["VIRTUAL-SKIN"],
             "Coefficient":[1.0],
-            "HotThreshold":["NAN", 37.0, 43.0, 45.0, 46.5, 52.0, 55.0],
+            "HotThreshold":["NAN", 37.0, 43.0, 45.0, 46.5, 52.0, 60.0],
             "HotHysteresis":[0.0, 1.9, 1.9, 1.9, 1.4, 1.9, 1.9],
             "Multiplier":0.001,
             "SendPowerHint":true,
@@ -867,6 +867,27 @@
             "PassiveDelay":7000
         },
         {
+            "Name":"VSKIN-SKIN-OVER-52",
+            "Type":"UNKNOWN",
+            "VirtualSensor":true,
+            "TriggerSensor": ["north_therm", "rfpa_therm", "soc_therm", "charging_therm", "disp_therm", "quiet_therm", "usb_pwr_therm"],
+            "Formula":"COUNT_THRESHOLD",
+            "Combination":["VIRTUAL-SKIN"],
+            "Coefficient":[-52000],
+            "Multiplier":1
+        },
+        {
+            "Name":"QUIET_THERM-MODEL-DIFF-DURING-MODEL-OVER-52",
+            "Type":"UNKNOWN",
+            "VirtualSensor":true,
+            "Formula":"WEIGHTED_AVG",
+            "Combination":["quiet_therm", "VIRTUAL-SKIN", -1000000],
+            "CombinationType":["SENSOR", "SENSOR", "CONSTANT"],
+            "Coefficient":[1, -1, "VSKIN-SKIN-OVER-52"],
+            "CoefficientType":["CONSTANT", "CONSTANT", "SENSOR"],
+            "Multiplier":0.001
+        },
+        {
             "Name":"LITTLE",
             "Type":"CPU",
             "Multiplier":0.001
@@ -1013,6 +1034,10 @@
                     "Thresholds": [41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 75]
                 },
                 {
+                    "Name": "QUIET_THERM-MODEL-DIFF-DURING-MODEL-OVER-52",
+                    "Thresholds": [-200, -30, -25, -20, -15, -10, -5, 0, 5, 10, 15, 20, 25, 30, 35, 40]
+                },
+                {
                     "Name": "VIRTUAL-SKIN-MODEL-LEGACY-DIFF",
                     "LoggingName": "MODEL-LEGACY-1",
                     "Thresholds": [
@@ -1026,6 +1051,10 @@
                     "Configs": [
                         {
                             "Monitor": ["VIRTUAL-SKIN-MODEL"],
+                            "TempRange": [-20.0, 55.0]
+                        },
+                        {
+                            "Monitor": ["quiet_therm"],
                             "TempRange": [-20.0, 55.0]
                         }
                     ]

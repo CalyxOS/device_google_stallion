@@ -57,6 +57,8 @@
   <ctl name="TAS25XX CODEC PROFILE" value="default"/>
   <ctl name="TAS25XX EM LEFT" value="NG_ME_ON"/>
   <ctl name="TAS25XX EM RIGHT" value="NG_ME_ON"/>
+  <ctl name="TAS25XX BOOST CURRENT LEFT" value="25" />
+  <ctl name="TAS25XX BOOST CURRENT RIGHT" value="25" />
 
   <!-- HAC Max Amp switch init -->
   <ctl name="HAC AMP EN" value="0" />
@@ -837,6 +839,18 @@
     <ctl name="BT_RX Mixer EP4" value="1" />
   </path>
 
+  <path name="spatializer-offload-playback-0 -> bluetooth-sco-default">
+    <path name="spatializer-offload-playback -> bt" />
+  </path>
+
+  <path name="spatializer-offload-playback-0 -> bluetooth-sco-headset">
+    <path name="spatializer-offload-playback -> bt" />
+  </path>
+
+  <path name="spatializer-offload-playback-0 -> bluetooth-sco-car-kit">
+    <path name="spatializer-offload-playback -> bt" />
+  </path>
+
   <path name="spatializer-offload-playback-0 -> bluetooth-a2dp-device">
     <path name="spatializer-offload-playback -> bt" />
   </path>
@@ -1376,7 +1390,6 @@
   </path>
 
   <path name="adapted-earpiece">
-    <ctl name="Digital PCM Volume" value="817" />
   </path>
   <path name="adapted-earpiece-battery-throttled">
     <path name="adapted-earpiece" />
