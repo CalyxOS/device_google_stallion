@@ -69,7 +69,7 @@ sync from ag/26090783, need remove before submit.
     <volume stream="AUDIO_STREAM_RING" deviceCategory="DEVICE_CATEGORY_HEADSET"
                                        ref="DEFAULT_DEVICE_CATEGORY_HEADSET_VOLUME_CURVE"/>
     <volume stream="AUDIO_STREAM_RING" deviceCategory="DEVICE_CATEGORY_SPEAKER">
-        <point>1,-4000</point>
+        <point>1,-4200</point>
         <point>33,-2400</point>
         <point>66,-1200</point>
         <point>100,0</point>
@@ -83,30 +83,30 @@ sync from ag/26090783, need remove before submit.
     <volume stream="AUDIO_STREAM_MUSIC" deviceCategory="DEVICE_CATEGORY_HEADSET"
                                         ref="DEFAULT_MEDIA_VOLUME_CURVE"/>
     <volume stream="AUDIO_STREAM_MUSIC" deviceCategory="DEVICE_CATEGORY_SPEAKER">
-        <point>1,-6589</point>
-        <point>8,-5971</point>
-        <point>12,-5619</point>
-        <point>16,-5212</point>
-        <point>20,-4833</point>
-        <point>24,-4434</point>
-        <point>28,-4141</point>
-        <point>32,-3856</point>
-        <point>36,-3611</point>
-        <point>40,-3382</point>
-        <point>44,-3143</point>
-        <point>48,-2921</point>
-        <point>52,-2695</point>
-        <point>56,-2497</point>
-        <point>60,-2308</point>
-        <point>64,-2109</point>
-        <point>68,-1893</point>
-        <point>72,-1706</point>
-        <point>76,-1474</point>
-        <point>80,-1224</point>
-        <point>84,-1000</point>
-        <point>88,-786</point>
-        <point>92,-581</point>
-        <point>96,-275</point>
+        <point>1,-6799</point>
+        <point>8,-6157</point>
+        <point>12,-5810</point>
+        <point>16,-5386</point>
+        <point>20,-5014</point>
+        <point>24,-4563</point>
+        <point>28,-4251</point>
+        <point>32,-3946</point>
+        <point>36,-3724</point>
+        <point>40,-3463</point>
+        <point>44,-3193</point>
+        <point>48,-2976</point>
+        <point>52,-2743</point>
+        <point>56,-2518</point>
+        <point>60,-2354</point>
+        <point>64,-2112</point>
+        <point>68,-1912</point>
+        <point>72,-1697</point>
+        <point>76,-1467</point>
+        <point>80,-1222</point>
+        <point>84,-1010</point>
+        <point>88,-791</point>
+        <point>92,-550</point>
+        <point>96,-260</point>
         <point>100,0</point>
     </volume>
     <volume stream="AUDIO_STREAM_MUSIC" deviceCategory="DEVICE_CATEGORY_EARPIECE"
@@ -132,7 +132,7 @@ sync from ag/26090783, need remove before submit.
     <volume stream="AUDIO_STREAM_NOTIFICATION" deviceCategory="DEVICE_CATEGORY_HEADSET"
                                                ref="DEFAULT_DEVICE_CATEGORY_HEADSET_VOLUME_CURVE"/>
     <volume stream="AUDIO_STREAM_NOTIFICATION" deviceCategory="DEVICE_CATEGORY_SPEAKER">
-        <point>1,-4800</point>
+        <point>1,-5200</point>
         <point>33,-2400</point>
         <point>66,-1200</point>
         <point>100,0</point>
@@ -190,10 +190,10 @@ sync from ag/26090783, need remove before submit.
         <point>100,-1800</point>
     </volume>
     <volume stream="AUDIO_STREAM_DTMF" deviceCategory="DEVICE_CATEGORY_SPEAKER">
-        <point>1,-6000</point>
-        <point>33,-3000</point>
-        <point>66,-2200</point>
-        <point>100,-1600</point>
+        <point>1,-6200</point>
+        <point>33,-3200</point>
+        <point>66,-2400</point>
+        <point>100,-1800</point>
     </volume>
     <volume stream="AUDIO_STREAM_DTMF" deviceCategory="DEVICE_CATEGORY_EARPIECE"
                                        ref="DEFAULT_SYSTEM_VOLUME_CURVE"/>
