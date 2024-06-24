@@ -182,13 +182,13 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_PACKAGES += \
     le_audio_codec_capabilities.xml
 
-# LE Audio Lunch Config for Phase 1 (LE audio toggle hidden by default)
+# LE Audio toggle shown by default
 PRODUCT_PRODUCT_PROPERTIES += \
-    persist.bluetooth.leaudio.toggle_visible=false
+    persist.bluetooth.leaudio.toggle_visible=true
 
 # LE Audio use classic connection by default
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.bluetooth.leaudio.le_audio_connection_by_default=false
+    ro.bluetooth.leaudio.le_audio_connection_by_default=true
 
 # Bluetooth LE Audio CIS handover to SCO
 # Set the property only for the controller couldn't support CIS/SCO simultaneously. More detailed in b/242908683.
@@ -201,7 +201,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 # LE Audio Unicast Allowlist
 PRODUCT_PRODUCT_PROPERTIES += \
-    persist.bluetooth.leaudio.allow_list=SM-R510
+    persist.bluetooth.leaudio.allow_list=SM-R510,WF-1000XM5
 
 # Override BQR mask to enable LE Audio Choppy report, remove BTRT logging
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
