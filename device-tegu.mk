@@ -14,7 +14,12 @@
 # limitations under the License.
 #
 
-SHIPPING_API_LEVEL := 34
+SHIPPING_API_LEVEL := 35
+
+PRODUCT_PACKAGES += \
+	hwservicemanager \
+	android.hidl.allocator@1.0-service
+
 USES_RADIOEXT_V1_7 = false
 USES_RADIOEXT_V2_0 = true
 
