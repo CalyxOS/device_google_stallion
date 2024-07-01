@@ -159,10 +159,12 @@ PRODUCT_PACKAGES += \
 	libspatialaudio \
 	librondo
 
-# Sound Dose
+ifneq ($(USE_AUDIO_HAL_AIDL),true)
+# HIDL Sound Dose
 PRODUCT_PACKAGES += \
 	android.hardware.audio.sounddose-vendor-impl \
 	audio_sounddose_aoc
+endif
 
 # Bluetooth LE Audio
 PRODUCT_PRODUCT_PROPERTIES += \
