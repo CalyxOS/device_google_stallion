@@ -42,6 +42,10 @@ TARGET_KERNEL_DIR ?= device/google/tegu-kernels/6.1/25D4
 TARGET_BOARD_KERNEL_HEADERS ?= device/google/tegu-kernels/6.1/25D4/kernel-headers
 endif
 
+ifneq ($(TARGET_BOOTS_16K),true)
+PRODUCT_16K_DEVELOPER_OPTION := $(RELEASE_GOOGLE_TEGU_16K_DEVELOPER_OPTION)
+endif
+
 $(call inherit-product-if-exists, vendor/google_devices/tegu/prebuilts/device-vendor-tegu.mk)
 $(call inherit-product-if-exists, vendor/google_devices/zumapro/prebuilts/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google_devices/zumapro/proprietary/device-vendor.mk)
