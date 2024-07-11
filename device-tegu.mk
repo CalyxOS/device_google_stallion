@@ -104,6 +104,12 @@ PRODUCT_COPY_FILES += \
 # lhbm peak brightness delay: decided by kernel
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += vendor.primarydisplay.lhbm.frames_to_reach_peak_brightness=0
 
+PRODUCT_SOONG_NAMESPACES += device/google/tegu/radio/coex
+
+# Coex Configs
+PRODUCT_PACKAGES += \
+        display_primary_ssc_coex_table
+
 # Thermal VT estimator
 PRODUCT_PACKAGES += \
     libthermal_tflite_wrapper
