@@ -77,3 +77,10 @@ PRODUCT_COPY_FILES += \
     device/google/tegu/audio/$(AUDIO_TABLE_FOLDER)/tas2572/ti_cal_mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/ti_cal_mixer_paths.xml
 
 endif
+
+# Offload spatializer config
+PRODUCT_PACKAGES += \
+    vendor.google.whitechapel.audio.hal.effect.spatializer.base \
+    vendor.google.whitechapel.audio.hal.effect.spatializer.mode_2_ch \
+    vendor.google.whitechapel.audio.hal.effect.spatializer.mode_6_ch \
+    vendor.google.whitechapel.audio.hal.effect.spatializer.mode_xaural
