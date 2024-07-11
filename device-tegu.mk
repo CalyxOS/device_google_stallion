@@ -104,6 +104,12 @@ PRODUCT_COPY_FILES += \
 # lhbm peak brightness delay: decided by kernel
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += vendor.primarydisplay.lhbm.frames_to_reach_peak_brightness=0
 
+PRODUCT_SOONG_NAMESPACES += device/google/tegu/radio/coex
+
+# Coex Configs
+PRODUCT_PACKAGES += \
+        display_primary_ssc_coex_table
+
 # Thermal VT estimator
 PRODUCT_PACKAGES += \
     libthermal_tflite_wrapper
@@ -119,7 +125,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.bluetooth.a2dp_offload.supported=true \
     persist.bluetooth.a2dp_offload.disabled=false \
-    persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac
+    persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac-opus
 
 # Bluetooth Tx power caps
 PRODUCT_COPY_FILES += \
@@ -153,10 +159,13 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.vendor.bluetooth.evb_bdaddr="22:22:22:33:44:55"
 
-# Spatial Audio
-PRODUCT_PACKAGES += \
-	libspatialaudio \
-	librondo
+# declare use of spatial audio
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.audio.spatializer_enabled=true
+
+# declare use of stereo spatialization
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.audio.stereo_spatialization_enabled=true
 
 ifneq ($(USE_AUDIO_HAL_AIDL),true)
 # HIDL Sound Dose
