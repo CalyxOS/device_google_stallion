@@ -27,6 +27,6 @@
     <item>36</item>
   </integer-array>
   <integer-array name="antenna_y">
-    <item>104</item>
+    <item>50</item>
   </integer-array>
 </resources>
