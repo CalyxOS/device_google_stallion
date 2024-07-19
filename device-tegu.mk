@@ -332,6 +332,10 @@ PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.vibrator.hal.context.cooldowntime=1600 \
     persist.vendor.vibrator.hal.context.settlingtime=5000
 
+# Override Output Distortion Gain
+PRODUCT_VENDOR_PROPERTIES += \
+    vendor.audio.hapticgenerator.distortion.output.gain=0.29
+
 # Setup Wizard device-specific settings
 PRODUCT_PRODUCT_PROPERTIES += \
     setupwizard.feature.enable_quick_start_flow=true
