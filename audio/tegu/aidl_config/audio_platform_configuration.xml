@@ -76,6 +76,9 @@
       <scenario condition="ScreenRotation:0,90,180,270"
         output="LeftChannel:compens_spk_l.conf RightChannel:compens_spk_r.conf" />
     </tuner>
+    <tuner name="gsenet">
+      <argument name="microphones" value="2" />
+    </tuner>
   </tuners>
 
   <latencies>
