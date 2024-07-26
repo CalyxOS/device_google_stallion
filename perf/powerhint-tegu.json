@@ -208,6 +208,16 @@
       "ResetOnInit": true
     },
     {
+      "Name": "MaxLoadBalanceInterval",
+      "Path": "/proc/vendor_sched/max_load_balance_interval",
+      "Values": [
+        "1",
+        "4"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {
       "Name": "ReducePreferIdle",
       "Path": "/proc/vendor_sched/reduce_prefer_idle",
       "Values": [
@@ -2063,6 +2073,12 @@
     },
     {
       "PowerHint": "CAMERA_STREAMING_EXTREME",
+      "Node": "MaxLoadBalanceInterval",
+      "Duration": 0,
+      "Value": "4"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_EXTREME",
       "Node": "CDHighCpusetCpus",
       "Duration": 0,
       "Value": "7"
@@ -2249,6 +2265,12 @@
     },
     {
       "PowerHint": "CAMERA_STREAMING_HIGH",
+      "Node": "MaxLoadBalanceInterval",
+      "Duration": 0,
+      "Value": "4"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_HIGH",
       "Node": "CDHighCpusetCpus",
       "Duration": 0,
       "Value": "7"
@@ -2300,6 +2322,12 @@
       "Node": "AutoPreferIdle",
       "Duration": 0,
       "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_STANDARD",
+      "Node": "MaxLoadBalanceInterval",
+      "Duration": 0,
+      "Value": "4"
     },
     {
       "PowerHint": "CAMERA_STREAMING_STANDARD",
@@ -2636,6 +2664,12 @@
       "Node": "AutoPreferIdle",
       "Duration": 0,
       "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_VIDEO_CALL",
+      "Node": "MaxLoadBalanceInterval",
+      "Duration": 0,
+      "Value": "4"
     },
     {
       "PowerHint": "CAMERA_STREAMING_VIDEO_CALL",
@@ -3405,6 +3439,12 @@
       "Node": "AutoPreferIdle",
       "Duration": 0,
       "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_PROJECT11",
+      "Node": "MaxLoadBalanceInterval",
+      "Duration": 0,
+      "Value": "4"
     },
     {
       "PowerHint": "CAMERA_PROJECT11",
