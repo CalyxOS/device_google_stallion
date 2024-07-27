@@ -33,18 +33,10 @@ TARGET_KERNEL_DIR ?= device/google/tegu-kernels/6.1/25D4
 TARGET_BOARD_KERNEL_HEADERS ?= device/google/tegu-kernels/6.1/25D4/kernel-headers
 endif
 
-ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
-    USE_UWBFIELDTESTQM := true
-endif
-ifeq ($(filter factory_tegu, $(TARGET_PRODUCT)),)
-    include device/google/tegu/uwb/uwb_calibration.mk
-endif
-
 $(call inherit-product-if-exists, vendor/google_devices/tegu/prebuilts/device-vendor-tegu.mk)
 $(call inherit-product-if-exists, vendor/google_devices/zumapro/prebuilts/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google_devices/zumapro/proprietary/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google_devices/tegu/proprietary/tegu/device-vendor-tegu.mk)
-$(call inherit-product-if-exists, vendor/qorvo/uwb/qm35-hal/Device.mk)
 
 # display
 DEVICE_PACKAGE_OVERLAYS += device/google/tegu/tegu/overlay
@@ -289,10 +281,6 @@ PRODUCT_PACKAGES += \
 
 # Trusty liboemcrypto.so
 PRODUCT_SOONG_NAMESPACES += vendor/google_devices/tegu/prebuilts
-
-# UWB
-PRODUCT_SOONG_NAMESPACES += \
-    device/google/tegu/uwb
 
 # Location
 include device/google/tegu/location/device-gnss.mk
