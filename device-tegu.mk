@@ -219,6 +219,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.bluetooth.leaudio.allow_list=SM-R510,WF-1000XM5
 
+# Audio CCA property
+PRODUCT_PROPERTY_OVERRIDES += \
+	persist.vendor.audio.cca.enabled=false
+
 # Override BQR mask to enable LE Audio Choppy report, remove BTRT logging
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_PRODUCT_PROPERTIES += \
