@@ -1225,7 +1225,7 @@
     <ctl name="TAS25XX CODEC PROFILE" value="voice"/>
     <ctl name="TAS25XX ASI Switch" value="1"/>
     <ctl name="TAS25XX PLAYBACK_VOLUME_LEFT" value="58"/>
-    <ctl name="HAC AMP EN" value="0" />
+    <ctl name="HAC AMP EN" value="1" />
     <ctl name="TAS25XX EM LEFT" value="OFF"/>
     <ctl name="TAS25XX EM RIGHT" value="OFF"/>
   </path>
