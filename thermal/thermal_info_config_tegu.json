@@ -844,7 +844,7 @@
                     "MaxReleaseStep": 1,
                     "MaxThrottleStep": 1,
                     "CdevCeiling": [0, 25, 25, 25, 26, 26, 26],
-                    "LimitInfo": [0, 0, 1, 1, 26, 26, 26]
+                    "LimitInfo": [0, 1, 1, 1, 26, 26, 26]
                 }
             ]
         },
