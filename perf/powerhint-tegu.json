@@ -932,6 +932,15 @@
         "20 40"
       ],
       "ResetOnInit": true
+    },
+    {
+      "Name": "PA_KILL",
+      "Path": "/sys/kernel/vendor_mm/pa_kill/reclaim_kb",
+      "Values": [
+        "102400",
+        "0"
+      ],
+      "ResetOnInit": false
     }
   ],
   "Actions": [
@@ -1403,6 +1412,12 @@
       "Node": "PerTaskMaxIowaitBoost",
       "Duration": 0,
       "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_PA_KILL_BOOST",
+      "Node": "PA_KILL",
+      "Duration": 0,
+      "Value": "102400"
     },
     {
       "PowerHint": "CAMERA_LAUNCH",
