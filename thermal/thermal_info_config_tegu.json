@@ -1266,6 +1266,10 @@
                         {
                             "Monitor": ["rfpa_therm"],
                             "TempRange": [-20.0, 60.0]
+                        },
+                        {
+                            "Monitor": ["VIRTUAL-SKIN-MODEL-LEGACY-DIFF"],
+                            "TempRange": [-7000, 7000]
                         }
                     ]
                 }
