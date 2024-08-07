@@ -325,13 +325,6 @@ PRODUCT_VENDOR_PROPERTIES += ro.vendor.gps.pps.enabled=true
 PRODUCT_VENDOR_PROPERTIES += \
 	persist.device_config.configuration.disable_rescue_party=true
 
-PRODUCT_VENDOR_PROPERTIES += \
-    persist.vendor.udfps.als_feed_forward_supported=true \
-    persist.vendor.udfps.boost_whole_auth_path_supported=true \
-    persist.vendor.udfps.capture_retrying_acquired_msg_supported=false \
-    persist.vendor.udfps.lhbm_controlled_in_hal_supported=true \
-    persist.vendor.udfps.set_lhbm_in_advance=true
-
 # OIS with system imu
 PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.camera.ois_with_system_imu=true
@@ -391,6 +384,15 @@ $(call inherit-product-if-exists, vendor/goodix/udfps/configuration/udfps_shippi
 else
 $(call inherit-product-if-exists, vendor/goodix/udfps/configuration/udfps_factory.mk)
 endif
+
+# Fingerprint exposure compensation
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.udfps.als_feed_forward_supported=true \
+    persist.vendor.udfps.boost_whole_auth_path_supported=true \
+    persist.vendor.udfps.capture_retrying_acquired_msg_supported=false \
+    persist.vendor.udfps.lhbm_controlled_in_hal_supported=true \
+    persist.vendor.udfps.set_lhbm_in_advance=true \
+    persist.vendor.udfps.auto_exposure_compensation_supported=true
 
 # Battery Mitigation Config
 ifeq (,$(TARGET_VENDOR_BATTERY_MITIGATION_CONFIG_PATH))
