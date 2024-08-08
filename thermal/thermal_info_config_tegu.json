@@ -1261,11 +1261,11 @@
                         },
                         {
                             "Monitor": ["north_therm"],
-                            "TempRange": [-20.0, 55.0]
+                            "TempRange": [-20.0, 60.0]
                         },
                         {
                             "Monitor": ["rfpa_therm"],
-                            "TempRange": [-20.0, 60.0]
+                            "TempRange": [-20.0, 55.0]
                         },
                         {
                             "Monitor": ["VIRTUAL-SKIN-MODEL-LEGACY-DIFF"],
