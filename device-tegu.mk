@@ -314,3 +314,11 @@ $(call inherit-product-if-exists, vendor/goodix/udfps/configuration/udfps_shippi
 else
 $(call inherit-product-if-exists, vendor/goodix/udfps/configuration/udfps_factory.mk)
 endif
+
+# Battery Mitigation Config
+ifeq (,$(TARGET_VENDOR_BATTERY_MITIGATION_CONFIG_PATH))
+TARGET_VENDOR_BATTERY_MITIGATION_CONFIG_PATH := device/google/tegu/battery_mitigation
+endif
+
+PRODUCT_COPY_FILES += \
+	$(TARGET_VENDOR_BATTERY_MITIGATION_CONFIG_PATH)/bm_config_tegu.json:$(TARGET_COPY_OUT_VENDOR)/etc/bm_config.json
