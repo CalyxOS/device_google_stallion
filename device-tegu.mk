@@ -309,7 +309,8 @@ PRODUCT_VENDOR_PROPERTIES += \
 
 PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.udfps.als_feed_forward_supported=true \
-    persist.vendor.udfps.lhbm_controlled_in_hal_supported=true
+    persist.vendor.udfps.lhbm_controlled_in_hal_supported=true \
+    persist.vendor.udfps.set_lhbm_in_advance=true
 
 # OIS with system imu
 PRODUCT_VENDOR_PROPERTIES += \
