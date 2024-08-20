@@ -309,7 +309,8 @@ PRODUCT_VENDOR_PROPERTIES += \
 
 PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.udfps.als_feed_forward_supported=true \
-    persist.vendor.udfps.lhbm_controlled_in_hal_supported=true
+    persist.vendor.udfps.lhbm_controlled_in_hal_supported=true \
+    persist.vendor.udfps.set_lhbm_in_advance=true
 
 # OIS with system imu
 PRODUCT_VENDOR_PROPERTIES += \
@@ -375,3 +376,7 @@ endif
 
 PRODUCT_COPY_FILES += \
 	$(TARGET_VENDOR_BATTERY_MITIGATION_CONFIG_PATH)/bm_config_tegu.json:$(TARGET_COPY_OUT_VENDOR)/etc/bm_config.json
+
+# IRadio HAL
+USE_RADIO_HAL_2_1 := false
+USE_RADIO_HAL_2_2 := true
