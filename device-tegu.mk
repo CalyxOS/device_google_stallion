@@ -326,8 +326,11 @@ PRODUCT_VENDOR_PROPERTIES += \
 # Media Performance Class 13
 PRODUCT_PROPERTY_OVERRIDES += ro.odm.build.media_performance_class=33
 
-# Display LBE
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += vendor.display.lbe.supported=1
+# Display function property settings
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    vendor.display.lbe.supported=1 \
+    ro.vendor.primarydisplay.google-tg4a.temperature_path=/dev/thermal/tz-by-name/disp_therm/temp \
+    ro.vendor.display.read_temp_interval=30
 
 # Vibrator HAL
 $(call soong_config_set,haptics,kernel_ver,v$(subst .,_,$(TARGET_LINUX_KERNEL_VERSION)))
