@@ -672,6 +672,7 @@
       "Values": [
         "664000",
         "233000",
+        "111000",
         "67000"
       ],
       "ResetOnInit": true
@@ -2135,6 +2136,18 @@
       "Node": "CPUSkipMask",
       "Duration": 0,
       "Value": "0x0"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_EXTREME",
+      "Node": "TNRMaxFreq",
+      "Duration": 0,
+      "Value": "111000"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_EXTREME",
+      "Node": "TNRFreq",
+      "Duration": 0,
+      "Value": "111000"
     },
     {
       "PowerHint": "CAMERA_STREAMING_HIGH",
