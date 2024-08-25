@@ -36,6 +36,7 @@ endif
 $(call inherit-product-if-exists, vendor/google_devices/tegu/prebuilts/device-vendor-tegu.mk)
 $(call inherit-product-if-exists, vendor/google_devices/zumapro/prebuilts/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google_devices/zumapro/proprietary/device-vendor.mk)
+$(call inherit-product-if-exists, vendor/google_devices/tegu/proprietary/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google_devices/tegu/proprietary/tegu/device-vendor-tegu.mk)
 
 # display
