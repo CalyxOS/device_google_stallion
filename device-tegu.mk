@@ -36,6 +36,7 @@ endif
 $(call inherit-product-if-exists, vendor/google_devices/tegu/prebuilts/device-vendor-tegu.mk)
 $(call inherit-product-if-exists, vendor/google_devices/zumapro/prebuilts/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google_devices/zumapro/proprietary/device-vendor.mk)
+$(call inherit-product-if-exists, vendor/google_devices/tegu/proprietary/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google_devices/tegu/proprietary/tegu/device-vendor-tegu.mk)
 
 # display
@@ -227,6 +228,11 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.bluetooth.leaudio.allow_list=SM-R510,WF-1000XM5
 
+# Keyboard height ratio and bottom padding in dp for portrait mode
+PRODUCT_PRODUCT_PROPERTIES += \
+          ro.com.google.ime.kb_pad_port_b=8 \
+          ro.com.google.ime.height_ratio=1.09
+
 # Audio CCA property
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.vendor.audio.cca.enabled=false
@@ -327,8 +333,11 @@ PRODUCT_VENDOR_PROPERTIES += \
 # Media Performance Class 13
 PRODUCT_PROPERTY_OVERRIDES += ro.odm.build.media_performance_class=33
 
-# Display LBE
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += vendor.display.lbe.supported=1
+# Display function property settings
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    vendor.display.lbe.supported=1 \
+    ro.vendor.primarydisplay.google-tg4a.temperature_path=/dev/thermal/tz-by-name/disp_therm/temp \
+    ro.vendor.display.read_temp_interval=30
 
 # Vibrator HAL
 $(call soong_config_set,haptics,kernel_ver,v$(subst .,_,$(TARGET_LINUX_KERNEL_VERSION)))
