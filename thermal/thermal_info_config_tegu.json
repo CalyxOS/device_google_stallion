@@ -1181,36 +1181,12 @@
             "RecordWithDefaultThreshold": ["VIRTUAL-SKIN"],
             "RecordWithThreshold": [
                 {
-                    "Name": "VIRTUAL-BTS-WINDOW-PARTIAL",
-                    "Thresholds": [41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 75]
-                },
-                {
                     "Name": "VIRTUAL-SKIN-SPEAKER-MODEL",
-                    "Thresholds": [41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 75]
+                    "Thresholds": [31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 55]
                 },
                 {
                     "Name": "VIRTUAL-SKIN",
-                    "Thresholds": [41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 75]
-                },
-                {
-                    "Name": "VIRTUAL-SKIN-SUB-0",
-                    "Thresholds": [41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 75]
-                },
-                {
-                    "Name": "VIRTUAL-SKIN-SUB-1",
-                    "Thresholds": [41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 75]
-                },
-                {
-                    "Name": "VIRTUAL-SKIN-SUB-2",
-                    "Thresholds": [41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 75]
-                },
-                {
-                    "Name": "VIRTUAL-SKIN-SUB-3",
-                    "Thresholds": [41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 75]
-                },
-                {
-                    "Name": "VIRTUAL-SKIN-SUB-4",
-                    "Thresholds": [41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 75]
+                    "Thresholds": [31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 55]
                 },
                 {
                     "Name": "QUIET_THERM-VSKIN-DIFF-DURING-VSKIN-OVER-52",
