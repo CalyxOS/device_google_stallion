@@ -389,3 +389,6 @@ PRODUCT_COPY_FILES += \
 # IRadio HAL
 USE_RADIO_HAL_2_1 := false
 USE_RADIO_HAL_2_2 := true
+
+# Allow RIL enable/disable ENDC mode during Radio OFF
+ALLOW_SET_ENDC_DURING_RADIO_OFF := true
