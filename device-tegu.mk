@@ -73,6 +73,7 @@ PRODUCT_COPY_FILES += \
 # USE_OEMSERVICE_HAL_AIDL := true
 # Enable AIDL based radioExternal HAL
 USE_RADIOEXTERNAL_HAL_AIDL := true
+$(call soong_config_set,grilservice,USE_RADIOEXTERNAL_HAL_AIDL,true)
 
 # NFC
 PRODUCT_COPY_FILES += \
