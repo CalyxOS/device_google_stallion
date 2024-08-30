@@ -83,29 +83,29 @@ sync from ag/26090783, need remove before submit.
     <volume stream="AUDIO_STREAM_MUSIC" deviceCategory="DEVICE_CATEGORY_HEADSET"
                                         ref="DEFAULT_MEDIA_VOLUME_CURVE"/>
     <volume stream="AUDIO_STREAM_MUSIC" deviceCategory="DEVICE_CATEGORY_SPEAKER">
-        <point>1,-6799</point>
-        <point>8,-6157</point>
-        <point>12,-5810</point>
-        <point>16,-5386</point>
-        <point>20,-5014</point>
-        <point>24,-4563</point>
-        <point>28,-4251</point>
-        <point>32,-3946</point>
-        <point>36,-3724</point>
-        <point>40,-3463</point>
-        <point>44,-3193</point>
-        <point>48,-2976</point>
-        <point>52,-2743</point>
-        <point>56,-2518</point>
-        <point>60,-2354</point>
-        <point>64,-2112</point>
-        <point>68,-1912</point>
-        <point>72,-1697</point>
-        <point>76,-1467</point>
-        <point>80,-1222</point>
-        <point>84,-1010</point>
-        <point>88,-791</point>
-        <point>92,-550</point>
+        <point>1,-6670</point>
+        <point>8,-6125</point>
+        <point>12,-5775</point>
+        <point>16,-5377</point>
+        <point>20,-5021</point>
+        <point>24,-4601</point>
+        <point>28,-4298</point>
+        <point>32,-3998</point>
+        <point>36,-3768</point>
+        <point>40,-3527</point>
+        <point>44,-3247</point>
+        <point>48,-3007</point>
+        <point>52,-2790</point>
+        <point>56,-2552</point>
+        <point>60,-2385</point>
+        <point>64,-2141</point>
+        <point>68,-1963</point>
+        <point>72,-1725</point>
+        <point>76,-1508</point>
+        <point>80,-1257</point>
+        <point>84,-1035</point>
+        <point>88,-845</point>
+        <point>92,-577</point>
         <point>96,-260</point>
         <point>100,0</point>
     </volume>
