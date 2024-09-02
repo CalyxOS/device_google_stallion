@@ -393,3 +393,14 @@ USE_RADIO_HAL_2_2 := true
 
 # Allow RIL enable/disable ENDC mode during Radio OFF
 ALLOW_SET_ENDC_DURING_RADIO_OFF := true
+
+# Set support for LEA multicodec
+PRODUCT_PRODUCT_PROPERTIES += \
+    bluetooth.core.le_audio.codec_extension_aidl.enabled=true
+
+# LE Audio configuration scenarios
+PRODUCT_COPY_FILES += \
+    device/google/tegu/bluetooth/audio_set_scenarios.json:$(TARGET_COPY_OUT_VENDOR)/etc/aidl/le_audio/aidl_audio_set_scenarios.json
+
+PRODUCT_COPY_FILES += \
+    device/google/tegu/bluetooth/audio_set_configurations.json:$(TARGET_COPY_OUT_VENDOR)/etc/aidl/le_audio/aidl_audio_set_configurations.json
