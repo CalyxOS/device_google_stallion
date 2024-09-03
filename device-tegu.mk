@@ -316,6 +316,7 @@ PRODUCT_VENDOR_PROPERTIES += \
 
 PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.udfps.als_feed_forward_supported=true \
+    persist.vendor.udfps.capture_retrying_acquired_msg_supported=false \
     persist.vendor.udfps.lhbm_controlled_in_hal_supported=true \
     persist.vendor.udfps.set_lhbm_in_advance=true
 
