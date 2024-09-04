@@ -53,7 +53,7 @@ include device/google/gs-common/bcmbt/bluetooth.mk
 include device/google/gs-common/touch/gti/predump_gti.mk
 include device/google/gs-common/touch/syna/predump_syna20.mk
 include device/google/gs-common/modem/radio_ext/radio_ext.mk
-
+include device/google/gs-common/esim/esim.mk
 # go/lyric-soong-variables
 $(call soong_config_set,lyric,camera_hardware,tegu)
 $(call soong_config_set,lyric,tuning_product,tegu)
