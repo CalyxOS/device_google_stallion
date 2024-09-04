@@ -3640,7 +3640,19 @@
       "SamplingWindow_D": 1,
       "ReportingRateLimitNs": 83333330,
       "TargetTimeFactor": 1.0,
-      "StaleTimeFactor": 15.0
+      "StaleTimeFactor": 15.0,
+      "HeuristicBoost_On": true,
+      "HBoostModerateJankThreshold": 2,
+      "HBoostOffMaxAvgDurRatio": 4.0,
+      "HBoostSevereJankPidPu": 0.3,
+      "HBoostSevereJankThreshold": 8,
+      "HBoostUclampMinCeilingRange": [480, 722],
+      "HBoostUclampMinFloorRange": [230, 410],
+      "JankCheckTimeFactor": 1.2,
+      "LowFrameRateThreshold": 25,
+      "MaxRecordsNum": 300,
+      "GpuBoost": true,
+      "GpuCapacityBoostMax": 40000
     },
     {
       "Name": "REFRESH_90FPS",
@@ -3666,7 +3678,20 @@
       "SamplingWindow_D": 1,
       "ReportingRateLimitNs": 111111110,
       "TargetTimeFactor": 1.0,
-      "StaleTimeFactor": 15.0
+      "StaleTimeFactor": 15.0,
+      "HeuristicBoost_On": true,
+      "HBoostModerateJankThreshold": 2,
+      "HBoostOffMaxAvgDurRatio": 4.0,
+      "HBoostSevereJankPidPu": 0.35,
+      "HBoostSevereJankThreshold": 8,
+      "HBoostUclampMinCeilingRange": [480, 722],
+      "HBoostUclampMinFloorRange": [230, 410],
+      "JankCheckTimeFactor": 1.2,
+      "LowFrameRateThreshold": 25,
+      "MaxRecordsNum": 300,
+      "GpuBoost": true,
+      "GpuCapacityBoostMax": 32500
+
     },
     {
       "Name": "REFRESH_60FPS",
@@ -3692,7 +3717,19 @@
       "SamplingWindow_D": 1,
       "ReportingRateLimitNs": 166666660,
       "TargetTimeFactor": 1.0,
-      "StaleTimeFactor": 15.0
+      "StaleTimeFactor": 15.0,
+      "HeuristicBoost_On": true,
+      "HBoostModerateJankThreshold": 2,
+      "HBoostOffMaxAvgDurRatio": 4.0,
+      "HBoostSevereJankPidPu": 0.25,
+      "HBoostSevereJankThreshold": 8,
+      "HBoostUclampMinCeilingRange": [480, 722],
+      "HBoostUclampMinFloorRange": [230, 410],
+      "JankCheckTimeFactor": 1.2,
+      "LowFrameRateThreshold": 25,
+      "MaxRecordsNum": 300,
+      "GpuBoost": true,
+      "GpuCapacityBoostMax": 25000
     },
     {
       "Name": "UiHighBoostWithoutPid",
