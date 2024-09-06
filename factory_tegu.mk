@@ -20,6 +20,9 @@ $(call inherit-product, device/google/zumapro/factory_common.mk)
 $(call inherit-product, device/google/tegu/device-tegu.mk)
 include device/google/tegu/audio/tegu/factory-audio-tables.mk
 
+# Factory binaries for GPS
+include device/google/tegu/location/factory-gnss.mk
+
 PRODUCT_NAME := factory_tegu
 PRODUCT_DEVICE := tegu
 PRODUCT_MODEL := Factory build on Tegu
@@ -30,11 +33,10 @@ PRODUCT_MANUFACTURER := Google
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.vendor.bluetooth.evb_bdaddr="22:22:22:33:44:55"
 
-# Override to factory SDK
-$(call soong_config_set, gpssdk, sdkv1, True)
-$(call soong_config_set, gpssdk, gpsmcuversion, gpsv1_$(TARGET_BUILD_VARIANT))
-
 # Factory binaries of camera
 PRODUCT_PACKAGES += fatp_tg4_wide_hat_tool
 
 PRODUCT_WITHOUT_TTS_VOICE_PACKS := true
+
+# preloaded_nanoapps.json
+PRODUCT_SOONG_NAMESPACES += vendor/google_contexthub/devices/factory

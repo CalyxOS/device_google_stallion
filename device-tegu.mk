@@ -14,8 +14,24 @@
 # limitations under the License.
 #
 
-TARGET_KERNEL_DIR ?= device/google/tegu-kernel
-TARGET_BOARD_KERNEL_HEADERS := device/google/tegu-kernel/kernel-headers
+ifdef RELEASE_GOOGLE_TEGU_RADIO_DIR
+RELEASE_GOOGLE_PRODUCT_RADIO_DIR := $(RELEASE_GOOGLE_TEGU_RADIO_DIR)
+endif
+ifdef RELEASE_GOOGLE_TEGU_RADIOCFG_DIR
+RELEASE_GOOGLE_PRODUCT_RADIOCFG_DIR := $(RELEASE_GOOGLE_TEGU_RADIOCFG_DIR)
+endif
+RELEASE_GOOGLE_BOOTLOADER_TEGU_DIR ?= 25D4# Keep this for pdk TODO: b/327119000
+RELEASE_GOOGLE_PRODUCT_BOOTLOADER_DIR := bootloader/$(RELEASE_GOOGLE_BOOTLOADER_TEGU_DIR)
+$(call soong_config_set,tegu_bootloader,prebuilt_dir,$(RELEASE_GOOGLE_BOOTLOADER_TEGU_DIR))
+
+
+ifdef RELEASE_KERNEL_TEGU_DIR
+TARGET_KERNEL_DIR ?= $(RELEASE_KERNEL_TEGU_DIR)
+TARGET_BOARD_KERNEL_HEADERS ?= $(RELEASE_KERNEL_TEGU_DIR)/kernel-headers
+else
+TARGET_KERNEL_DIR ?= device/google/tegu-kernels/6.1/25D4
+TARGET_BOARD_KERNEL_HEADERS ?= device/google/tegu-kernels/6.1/25D4/kernel-headers
+endif
 
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
     USE_UWBFIELDTESTQM := true
@@ -30,23 +46,27 @@ $(call inherit-product-if-exists, vendor/google_devices/zumapro/proprietary/devi
 $(call inherit-product-if-exists, vendor/google_devices/tegu/proprietary/tegu/device-vendor-tegu.mk)
 $(call inherit-product-if-exists, vendor/qorvo/uwb/qm35-hal/Device.mk)
 
+# display
+DEVICE_PACKAGE_OVERLAYS += device/google/tegu/tegu/overlay
+
+ifeq ($(RELEASE_PIXEL_AIDL_AUDIO_HAL),true)
+USE_AUDIO_HAL_AIDL := true
+endif
+
 include device/google/tegu/audio/tegu/audio-tables.mk
 include device/google/zumapro/device-shipping-common.mk
 include hardware/google/pixel/vibrator/cs40l26/device.mk
 include device/google/gs-common/bcmbt/bluetooth.mk
-include device/google/gs-common/touch/syna/syna20.mk
+include device/google/gs-common/touch/gti/predump_gti.mk
+include device/google/gs-common/touch/syna/predump_syna20.mk
+include device/google/gs-common/modem/radio_ext/radio_ext.mk
 
 # go/lyric-soong-variables
-# # TODO(298309659): Needs to check with owner later
-$(warning camera_hardware set to zuma on zumapro target)
 $(call soong_config_set,lyric,camera_hardware,tegu)
-$(warning tuning_product set to zuma on zumapro target)
-$(call soong_config_set,lyric,tuning_product,ripcurrent)
-$(warning target_device set to zuma on zumapro target)
-$(call soong_config_set,google3a_config,target_device,ripcurrent)
+$(call soong_config_set,lyric,tuning_product,tegu)
+$(call soong_config_set,google3a_config,target_device,tegu)
 
-# display
-DEVICE_PACKAGE_OVERLAYS += device/google/tegu/tegu/overlay
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.ignore_hdr_camera_layers=true
 
 # Init files
 PRODUCT_COPY_FILES += \
@@ -81,13 +101,26 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.se.omapi.uicc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.se.omapi.uicc.xml \
 	device/google/tegu/nfc/libse-gto-hal.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libse-gto-hal.conf
 
+# Thermal VT estimator
+PRODUCT_PACKAGES += \
+    libthermal_tflite_wrapper
+
+# Thermal Model
+TARGET_VENDOR_THERMAL_CONFIG_PATH := device/google/tegu/thermal
+PRODUCT_COPY_FILES += \
+	$(TARGET_VENDOR_THERMAL_CONFIG_PATH)/vt_estimation_model_tegu.tflite:$(TARGET_COPY_OUT_VENDOR)/etc/vt_estimation_model.tflite \
+
 # Bluetooth HAL
 PRODUCT_COPY_FILES += \
-	device/google/tegu/bluetooth/bt_vendor_overlay_tegu.conf:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth/bt_vendor_overlay.conf
+	device/google/tegu/bluetooth/bt_vendor_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth/bt_vendor_overlay.conf
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.bluetooth.a2dp_offload.supported=true \
     persist.bluetooth.a2dp_offload.disabled=false \
     persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac
+
+# POF
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.bluetooth.finder.supported=true
 
 # Bluetooth hci_inject test tool
 PRODUCT_PACKAGES_DEBUG += \
@@ -105,20 +138,9 @@ PRODUCT_PACKAGES_DEBUG += \
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.bluetooth.a2dp_aac.vbr_supported=true
 
-# Override BQR mask to enable LE Audio Choppy report, remove BTRT logging
-ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+# Bluetooth Super Wide Band
 PRODUCT_PRODUCT_PROPERTIES += \
-    persist.bluetooth.bqr.event_mask=295006 \
-    persist.bluetooth.bqr.vnd_quality_mask=29 \
-    persist.bluetooth.bqr.vnd_trace_mask=0 \
-    persist.bluetooth.vendor.btsnoop=true
-else
-PRODUCT_PRODUCT_PROPERTIES += \
-    persist.bluetooth.bqr.event_mask=295006 \
-    persist.bluetooth.bqr.vnd_quality_mask=16 \
-    persist.bluetooth.bqr.vnd_trace_mask=0 \
-    persist.bluetooth.vendor.btsnoop=false
-endif
+    bluetooth.hfp.swb.supported=true
 
 # default BDADDR for EVB only
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -149,9 +171,53 @@ PRODUCT_PRODUCT_PROPERTIES += \
 	ro.bluetooth.leaudio_offload.supported=true \
 	persist.bluetooth.leaudio_offload.disabled=false \
 
+# Include Bluetooth soong namespace
+PRODUCT_SOONG_NAMESPACES += \
+    device/google/tegu/bluetooth
+
 # Bluetooth LE Auido offload capabilities setting
-PRODUCT_COPY_FILES += \
-	device/google/tegu/bluetooth/le_audio_codec_capabilities.xml:$(TARGET_COPY_OUT_VENDOR)/etc/le_audio_codec_capabilities.xml
+PRODUCT_PACKAGES += \
+    le_audio_codec_capabilities.xml
+
+# LE Audio Lunch Config for Phase 1 (LE audio toggle hidden by default)
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.bluetooth.leaudio.toggle_visible=false
+
+# LE Audio use classic connection by default
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.bluetooth.leaudio.le_audio_connection_by_default=false
+
+# Bluetooth LE Audio CIS handover to SCO
+# Set the property only for the controller couldn't support CIS/SCO simultaneously. More detailed in b/242908683.
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.bluetooth.leaudio.notify.idle.during.call=true
+
+# Bluetooth LE Audio enable dual mic SWB call
+PRODUCT_PRODUCT_PROPERTIES += \
+    bluetooth.leaudio.dual_bidirection_swb.supported=true
+
+# LE Audio Unicast Allowlist
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.bluetooth.leaudio.allow_list=SM-R510
+
+# Override BQR mask to enable LE Audio Choppy report, remove BTRT logging
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.bluetooth.bqr.event_mask=295006 \
+    persist.bluetooth.bqr.vnd_quality_mask=29 \
+    persist.bluetooth.bqr.vnd_trace_mask=0 \
+    persist.bluetooth.vendor.btsnoop=true
+else
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.bluetooth.bqr.event_mask=295006 \
+    persist.bluetooth.bqr.vnd_quality_mask=16 \
+    persist.bluetooth.bqr.vnd_trace_mask=0 \
+    persist.bluetooth.vendor.btsnoop=false
+endif
+
+# Enable Bluetooth AutoOn feature
+PRODUCT_PRODUCT_PROPERTIES += \
+    bluetooth.server.automatic_turn_on=true
 
 # Keymaster HAL
 #LOCAL_KEYMASTER_PRODUCT_PACKAGE ?= android.hardware.keymaster@4.1-service
@@ -199,7 +265,7 @@ PRODUCT_SOONG_NAMESPACES += \
     device/google/tegu/uwb
 
 # Location
-include device/google/tegu/location/gnssd/device-gnss.mk
+include device/google/tegu/location/device-gnss.mk
 
 PRODUCT_VENDOR_PROPERTIES += \
 	persist.device_config.configuration.disable_rescue_party=true
@@ -208,12 +274,22 @@ PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.udfps.als_feed_forward_supported=true \
     persist.vendor.udfps.lhbm_controlled_in_hal_supported=true
 
-# Display RRS default Config
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += persist.vendor.display.primary.boot_config=960x2142@120
-# TODO: b/250788756 - the property will be phased out after HWC loads user-preferred mode
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += vendor.display.preferred_mode=960x2142@120
+# OIS with system imu
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.camera.ois_with_system_imu=true
+
+# Camera Vendor property
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.camera.front_720P_always_binning=true
+
+# Media Performance Class 13
+PRODUCT_PROPERTY_OVERRIDES += ro.odm.build.media_performance_class=33
+
+# Display LBE
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += vendor.display.lbe.supported=1
 
 # Vibrator HAL
+$(call soong_config_set,haptics,kernel_ver,v$(subst .,_,$(TARGET_LINUX_KERNEL_VERSION)))
 ADAPTIVE_HAPTICS_FEATURE := adaptive_haptics_v1
 PRODUCT_VENDOR_PROPERTIES += \
     ro.vendor.vibrator.hal.supported_primitives=243 \
