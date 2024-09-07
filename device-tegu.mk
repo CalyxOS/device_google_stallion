@@ -14,6 +14,9 @@
 # limitations under the License.
 #
 
+USES_RADIOEXT_V1_7 = false
+USES_RADIOEXT_V2_0 = true
+
 ifdef RELEASE_GOOGLE_TEGU_RADIO_DIR
 RELEASE_GOOGLE_PRODUCT_RADIO_DIR := $(RELEASE_GOOGLE_TEGU_RADIO_DIR)
 endif
@@ -52,8 +55,9 @@ include hardware/google/pixel/vibrator/cs40l26/device.mk
 include device/google/gs-common/bcmbt/bluetooth.mk
 include device/google/gs-common/touch/gti/predump_gti.mk
 include device/google/gs-common/touch/syna/predump_syna20.mk
-include device/google/gs-common/modem/radio_ext/radio_ext.mk
+include device/google/gs-common/gril/aidl/2.0/gril_aidl.mk
 include device/google/gs-common/esim/esim.mk
+
 # go/lyric-soong-variables
 $(call soong_config_set,lyric,camera_hardware,tegu)
 $(call soong_config_set,lyric,tuning_product,tegu)
@@ -137,6 +141,11 @@ PRODUCT_COPY_FILES += \
 # POF
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.bluetooth.finder.supported=true
+
+# DCK properties based on target
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.gms.dck.eligible_wcc=2 \
+    ro.gms.dck.se_capability=1
 
 # Bluetooth hci_inject test tool
 PRODUCT_PACKAGES_DEBUG += \
