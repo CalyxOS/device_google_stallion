@@ -77,7 +77,7 @@ PRODUCT_COPY_FILES += \
         device/google/tegu/conf/init.recovery.device.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.tegu.rc
 
 # Enable AIDL based oemservice HAL
-# USE_OEMSERVICE_HAL_AIDL := true
+USE_OEMSERVICE_HAL_AIDL := true
 # Enable AIDL based radioExternal HAL
 USE_RADIOEXTERNAL_HAL_AIDL := true
 
