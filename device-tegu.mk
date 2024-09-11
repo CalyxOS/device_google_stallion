@@ -123,6 +123,7 @@ PRODUCT_PACKAGES += \
 TARGET_VENDOR_THERMAL_CONFIG_PATH := device/google/tegu/thermal
 PRODUCT_COPY_FILES += \
 	$(TARGET_VENDOR_THERMAL_CONFIG_PATH)/vt_estimation_model_tegu.tflite:$(TARGET_COPY_OUT_VENDOR)/etc/vt_estimation_model.tflite \
+	$(TARGET_VENDOR_THERMAL_CONFIG_PATH)/vt_estimation_odpm_model_tegu.tflite:$(TARGET_COPY_OUT_VENDOR)/etc/vt_estimation_odpm_model.tflite \
 	$(TARGET_VENDOR_THERMAL_CONFIG_PATH)/vt_speaker_estimation_model_tegu.tflite:$(TARGET_COPY_OUT_VENDOR)/etc/vt_speaker_estimation_model.tflite \
 
 # Bluetooth HAL
