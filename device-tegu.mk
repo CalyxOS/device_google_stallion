@@ -15,6 +15,8 @@
 #
 
 SHIPPING_API_LEVEL := 34
+USES_RADIOEXT_V1_7 = false
+USES_RADIOEXT_V2_0 = true
 
 ifdef RELEASE_GOOGLE_TEGU_RADIO_DIR
 RELEASE_GOOGLE_PRODUCT_RADIO_DIR := $(RELEASE_GOOGLE_TEGU_RADIO_DIR)
@@ -54,8 +56,7 @@ include hardware/google/pixel/vibrator/cs40l26/device.mk
 include device/google/gs-common/bcmbt/bluetooth.mk
 include device/google/gs-common/touch/gti/predump_gti.mk
 include device/google/gs-common/touch/syna/predump_syna20.mk
-include device/google/gs-common/modem/radio_ext/radio_ext.mk
-include device/google/gs-common/gril/hidl/1.7/gril_hidl.mk
+include device/google/gs-common/gril/aidl/2.0/gril_aidl.mk
 include device/google/gs-common/esim/esim.mk
 
 # go/lyric-soong-variables
