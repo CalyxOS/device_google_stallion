@@ -791,15 +791,15 @@
             "ExcludedPowerInfo": [
                 {
                     "PowerRail": "PARTIAL_SYSTEM_POWER",
-                    "PowerWeight": [0.12, 0.12, 1.0, 1.0, 1.0, 1.0, 1.0]
+                    "PowerWeight": [0.12, 0.12, 0.6, 1.0, 1.0, 1.0, 1.0]
                 }
             ],
             "BindedCdevInfo": [
                 {
                     "CdevRequest": "fcc",
                     "CdevWeightForPID": [1, 1, 1, 1, 1, 1, 1],
-                    "MaxReleaseStep": 1,
-                    "MaxThrottleStep": 1,
+                    "MaxReleaseStep": 4,
+                    "MaxThrottleStep": 4,
                     "CdevCeiling": [0, 25, 25, 25, 26, 26, 26],
                     "LimitInfo": [0, 0, 0, 0, 0, 26, 26]
                 }
@@ -842,8 +842,8 @@
                 {
                     "CdevRequest": "dc_icl",
                     "CdevWeightForPID": [1, 1, 1, 1, 1, 1, 1],
-                    "MaxReleaseStep": 1,
-                    "MaxThrottleStep": 1,
+                    "MaxReleaseStep": 2,
+                    "MaxThrottleStep": 4,
                     "CdevCeiling": [0, 25, 25, 25, 26, 26, 26],
                     "LimitInfo": [0, 1, 1, 1, 26, 26, 26]
                 }
