@@ -59,6 +59,7 @@ include device/google/gs-common/touch/gti/predump_gti.mk
 include device/google/gs-common/touch/syna/predump_syna20.mk
 include device/google/gs-common/gril/aidl/2.0/gril_aidl.mk
 include device/google/gs-common/esim/esim.mk
+include device/google/gs-common/pixelsupport/pixelsupport.mk
 
 # go/lyric-soong-variables
 $(call soong_config_set,lyric,camera_hardware,tegu)
@@ -416,3 +417,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
     device/google/tegu/bluetooth/audio_set_configurations.json:$(TARGET_COPY_OUT_VENDOR)/etc/aidl/le_audio/aidl_audio_set_configurations.json
+
+#Component Override for Pixel Troubleshooting App
+PRODUCT_COPY_FILES += \
+    device/google/tegu/tegu-component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/tegu-component-overrides.xml
