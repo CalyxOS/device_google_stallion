@@ -174,10 +174,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.vendor.bluetooth.evb_bdaddr="22:22:22:33:44:55"
 
-# declare use of spatial audio
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.audio.spatializer_enabled=true
-
 ifneq ($(USE_AUDIO_HAL_AIDL),true)
 # HIDL Sound Dose
 PRODUCT_PACKAGES += \
