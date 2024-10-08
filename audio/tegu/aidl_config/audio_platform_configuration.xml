@@ -53,6 +53,8 @@
       <argument name="SpeakerNum" value="2" />
       <argument name="AcousticShockProtection" />
       <argument name="EnableProtection" />
+      <argument name="DefaultReValues" value="5.699,6.91" />
+      <argument name="DefaultTemperature" value="25" />
     </device>
   </devices>
 
