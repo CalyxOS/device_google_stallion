@@ -383,6 +383,7 @@ PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.udfps.boost_whole_auth_path_supported=true \
     persist.vendor.udfps.capture_retrying_acquired_msg_supported=false \
     persist.vendor.udfps.fps_touch_handler_supported=true \
+    persist.vendor.udfps.fps_touch_handler.handle_down_up_events=true \
     persist.vendor.udfps.lhbm_controlled_in_hal_supported=true \
     persist.vendor.udfps.set_lhbm_in_advance=true \
     persist.vendor.udfps.auto_exposure_compensation_supported=true
