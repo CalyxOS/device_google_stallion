@@ -923,6 +923,18 @@
       "Type": "Property"
     },
     {
+      "Name": "VIRTUAL-SKIN-CPU-ODPM",
+      "Path": "vendor.thermal.VIRTUAL-SKIN-CPU-ODPM.profile",
+      "Values": [
+        "",
+        "game",
+        "camera"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true,
+      "Type": "Property"
+    },
+    {
       "Name": "VIRTUAL-SKIN-CPU-HIGH",
       "Path": "vendor.thermal.VIRTUAL-SKIN-CPU-HIGH.profile",
       "Values": [
@@ -2136,6 +2148,12 @@
     },
     {
       "PowerHint": "CAMERA_STREAMING_EXTREME",
+      "Node": "VIRTUAL-SKIN-CPU-ODPM",
+      "Duration": 0,
+      "Value": "camera"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_EXTREME",
       "Node": "TNRMaxFreq",
       "Duration": 0,
       "Value": "111000"
@@ -2319,6 +2337,12 @@
       "Node": "CDCpuset",
       "Duration": 0,
       "Value": "0-6"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_HIGH",
+      "Node": "VIRTUAL-SKIN-CPU-ODPM",
+      "Duration": 0,
+      "Value": "camera"
     },
     {
       "PowerHint": "CAMERA_STREAMING_HIGH",
@@ -3154,6 +3178,12 @@
       "Node": "VIRTUAL-SKIN-CPU-MID",
       "Duration": 0,
       "Value": "game"
+    },
+    {
+    "PowerHint": "GAME",
+    "Node": "VIRTUAL-SKIN-CPU-ODPM",
+    "Duration": 0,
+    "Value": "game"
     },
     {
       "PowerHint": "GAME",
