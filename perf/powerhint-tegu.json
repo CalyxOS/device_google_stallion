@@ -985,6 +985,16 @@
       "ResetOnInit": false
     },
     {
+      "Name": "AAModeProperty",
+      "Path": "vendor.powerhal.mode.aa",
+      "Values": [
+        "1",
+        "0"
+      ],
+      "ResetOnInit": true,
+      "Type": "Property"
+    },
+    {
       "Name": "KswapdUclaimMin",
       "Path": "/sys/kernel/vendor_mm/kswapd_uclamp_min",
       "Values": [
@@ -3135,6 +3145,12 @@
       "Value": "1"
     },
     {
+      "PowerHint": "AUTOMOTIVE_PROJECTION",
+      "Node": "AAModeProperty",
+      "Duration": 0,
+      "Value": "1"
+    },
+    {
       "PowerHint": "DISPLAY_IDLE",
       "Node": "FGPreferIdle",
       "Duration": 0,
@@ -3156,6 +3172,18 @@
       "Node": "AdpfRampupMultiplier",
       "Duration": 0,
       "Value": "0"
+    },
+    {
+      "PowerHint": "DISPLAY_IDLE",
+      "Type": "MaskHint",
+      "Value":"DISPLAY_UPDATE_IMMINENT",
+      "EnableProperty": "vendor.powerhal.mode.aa"
+    },
+    {
+      "PowerHint": "DISPLAY_IDLE",
+      "Type": "MaskHint",
+      "Value":"CPU_LOAD_RESET",
+      "EnableProperty": "vendor.powerhal.mode.aa"
     },
     {
       "PowerHint": "DISPLAY_UPDATE_IMMINENT",
