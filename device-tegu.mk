@@ -380,6 +380,7 @@ endif
 # Fingerprint exposure compensation
 PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.udfps.als_feed_forward_supported=true \
+    persist.vendor.udfps.auth_filter.mt_filter.enabled=true \
     persist.vendor.udfps.boost_whole_auth_path_supported=true \
     persist.vendor.udfps.capture_retrying_acquired_msg_supported=false \
     persist.vendor.udfps.fps_touch_handler_supported=true \
