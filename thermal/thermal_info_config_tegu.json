@@ -193,8 +193,8 @@
             "VirtualSensor": true,
             "ModelPath": "vt_estimation_odpm_model.tflite",
             "Formula": "USE_ML_MODEL",
-            "Combination": ["north_therm", "rfpa_therm", "soc_therm", "charging_therm", "disp_therm", "btmspkr_therm", "quiet_therm", "usb_pwr_therm", "MODEL_MISC_PWR", "MODEL_CAMERA_PWR", "MODEL_DISPLAY_PWR", "MODEL_MODEM_PWR", "MODEL_RFFE_PWR", "MODEL_WLAN_BT_PWR"],
-            "CombinationType": ["SENSOR", "SENSOR", "SENSOR", "SENSOR", "SENSOR", "SENSOR", "SENSOR", "SENSOR", "ODPM", "ODPM", "ODPM", "ODPM", "ODPM", "ODPM"],
+            "Combination": ["rfpa_therm", "quiet_therm", "charging_therm", "usb_pwr_therm", "btmspkr_therm", "disp_therm", "north_therm", "soc_therm", "battery","MODEL_MISC_PWR", "MODEL_CAMERA_PWR", "MODEL_DISPLAY_PWR", "MODEL_MODEM_PWR", "MODEL_RFFE_PWR", "MODEL_WLAN_BT_PWR"],
+            "CombinationType": ["SENSOR", "SENSOR", "SENSOR", "SENSOR", "SENSOR", "SENSOR", "SENSOR", "SENSOR", "SENSOR", "ODPM", "ODPM", "ODPM", "ODPM", "ODPM", "ODPM"],
             "Multiplier": 0.001
         },
         {
