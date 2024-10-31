@@ -55,8 +55,8 @@
   <ctl name="TAS25XX PLAYBACK_VOLUME_RIGHT" value="55"/>
   <ctl name="TAS25XX ASI Switch" value="0"/>
   <ctl name="TAS25XX CODEC PROFILE" value="default"/>
-  <ctl name="TAS25XX EM LEFT" value="NG_ME_ON"/>
-  <ctl name="TAS25XX EM RIGHT" value="NG_ME_ON"/>
+  <ctl name="TAS25XX EM LEFT" value="NG_ON"/>
+  <ctl name="TAS25XX EM RIGHT" value="NG_ON"/>
   <ctl name="TAS25XX BOOST CURRENT LEFT" value="25" />
   <ctl name="TAS25XX BOOST CURRENT RIGHT" value="25" />
 
