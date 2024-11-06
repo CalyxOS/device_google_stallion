@@ -148,8 +148,8 @@ PRODUCT_COPY_FILES += \
     device/google/tegu/bluetooth/bluetooth_power_limits_tegu.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits.csv \
     device/google/tegu/bluetooth/bluetooth_power_limits_tegu_EU.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_EU.csv \
     device/google/tegu/bluetooth/bluetooth_power_limits_tegu_JP.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_JP.csv \
-    device/google/tegu/bluetooth/bluetooth_power_limits_tegu_US_CA.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_US.csv \
-    device/google/tegu/bluetooth/bluetooth_power_limits_tegu_US_CA.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_CA.csv
+    device/google/tegu/bluetooth/bluetooth_power_limits_tegu_US.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_US.csv \
+    device/google/tegu/bluetooth/bluetooth_power_limits_tegu_CA.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_CA.csv
 
 # POF
 PRODUCT_PRODUCT_PROPERTIES += \
