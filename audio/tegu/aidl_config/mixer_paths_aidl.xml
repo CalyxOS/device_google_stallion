@@ -275,44 +275,6 @@
   <ctl name="Decoder Reference Enable" value="0" />
   <ctl name="LVM Enable" value="0" />
 
-  <!-- sidetone dynamic control -->
-  <path name="sidetone-for handset">
-    <!-- 1065353216 = 0x3f800000 = 1.0 -->
-    <ctl name="Sidetone Biquad0" id="0" value="1065353216" />
-    <ctl name="Sidetone Biquad0" id="1" value="1065353216" />
-    <ctl name="Sidetone Biquad0" id="2" value="0" />
-    <ctl name="Sidetone Biquad0" id="3" value="0" />
-    <ctl name="Sidetone Biquad0" id="4" value="0" />
-    <ctl name="Sidetone Biquad0" id="5" value="0" />
-    <ctl name="Sidetone Biquad1" id="0" value="1065353216" />
-    <ctl name="Sidetone Biquad1" id="1" value="1065353216" />
-    <ctl name="Sidetone Biquad1" id="2" value="0" />
-    <ctl name="Sidetone Biquad1" id="3" value="0" />
-    <ctl name="Sidetone Biquad1" id="4" value="0" />
-    <ctl name="Sidetone Biquad1" id="5" value="0" />
-    <ctl name="Sidetone Biquad2" id="0" value="1065353216" />
-    <ctl name="Sidetone Biquad2" id="1" value="1065353216" />
-    <ctl name="Sidetone Biquad2" id="2" value="0" />
-    <ctl name="Sidetone Biquad2" id="3" value="0" />
-    <ctl name="Sidetone Biquad2" id="4" value="0" />
-    <ctl name="Sidetone Biquad2" id="5" value="0" />
-    <ctl name="Sidetone Biquad3" id="0" value="1065353216" />
-    <ctl name="Sidetone Biquad3" id="1" value="1065353216" />
-    <ctl name="Sidetone Biquad3" id="2" value="0" />
-    <ctl name="Sidetone Biquad3" id="3" value="0" />
-    <ctl name="Sidetone Biquad3" id="4" value="0" />
-    <ctl name="Sidetone Biquad3" id="5" value="0" />
-    <ctl name="Sidetone Biquad4" id="0" value="1065353216" />
-    <ctl name="Sidetone Biquad4" id="1" value="1065353216" />
-    <ctl name="Sidetone Biquad4" id="2" value="0" />
-    <ctl name="Sidetone Biquad4" id="3" value="0" />
-    <ctl name="Sidetone Biquad4" id="4" value="0" />
-    <ctl name="Sidetone Biquad4" id="5" value="0" />
-    <ctl name="Sidetone EQ Stage Number" value="5" />
-    <ctl name="Sidetone Volume" value="-90" />
-    <ctl name="Sidetone Enable" value="1" />
-  </path>
-
   <!-- audio playback dynamic route -->
   <path name="primary-playback -> speaker">
     <ctl name="TDM_0_RX Mixer EP2" value="1" />
