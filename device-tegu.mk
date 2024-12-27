@@ -434,3 +434,17 @@ PRODUCT_COPY_FILES += \
 #Component Override for Pixel Troubleshooting App
 PRODUCT_COPY_FILES += \
     device/google/tegu/tegu-component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/tegu-component-overrides.xml
+
+# Increment the SVN for any official public releases
+ifdef RELEASE_SVN_TEGU
+TARGET_SVN ?= $(RELEASE_SVN_TEGU)
+else
+# Set this for older releases that don't use build flag
+TARGET_SVN ?= 2
+endif
+
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.vendor.build.svn=$(TARGET_SVN)
+
+
+
