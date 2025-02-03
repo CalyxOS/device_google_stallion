@@ -410,6 +410,10 @@ ifeq (,$(TARGET_VENDOR_BATTERY_MITIGATION_CONFIG_PATH))
 TARGET_VENDOR_BATTERY_MITIGATION_CONFIG_PATH := device/google/tegu/battery_mitigation
 endif
 
+# Telephony Satellite Feature
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.telephony.satellite.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/android.hardware.telephony.satellite.xml
+
 PRODUCT_COPY_FILES += \
 	$(TARGET_VENDOR_BATTERY_MITIGATION_CONFIG_PATH)/bm_config_tegu.json:$(TARGET_COPY_OUT_VENDOR)/etc/bm_config.json
 
