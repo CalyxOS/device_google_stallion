@@ -27,6 +27,3 @@ PRODUCT_DEVICE := tegu
 PRODUCT_MODEL := AOSP on tegu
 PRODUCT_BRAND := Android
 PRODUCT_MANUFACTURER := Google
-
-DEVICE_MANIFEST_FILE := \
-	device/google/tegu/manifest.xml
