@@ -444,7 +444,7 @@ ifdef RELEASE_SVN_TEGU
 TARGET_SVN ?= $(RELEASE_SVN_TEGU)
 else
 # Set this for older releases that don't use build flag
-TARGET_SVN ?= 2
+TARGET_SVN ?= 3
 endif
 
 PRODUCT_VENDOR_PROPERTIES += \
