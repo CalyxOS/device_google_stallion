@@ -66,7 +66,6 @@ include device/google/gs-common/bcmbt/bluetooth.mk
 include device/google/gs-common/touch/gti/predump_gti.mk
 include device/google/gs-common/touch/syna/predump_syna20.mk
 include device/google/gs-common/gril/aidl/2.0/gril_aidl.mk
-include device/google/gs-common/esim/esim.mk
 include device/google/gs-common/pixelsupport/pixelsupport.mk
 
 # go/lyric-soong-variables
