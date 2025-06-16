@@ -74,3 +74,13 @@ on property:persist.vendor.touch_sensitivity_mode=1 && property:sys.boot_complet
 on property:ro.boot.hardware.sku=G3Y12
     setprop audio.camerasound.force true
 
+# eSIM
+# Disable bootstrap when bootloader is unlocked in user build
+on property:ro.build.type=user && property:ro.boot.flash.locked=0
+    setprop setupwizard.feature.provisioning_profile_mode false
+# Disable bootstrap for DVT devices shipping to non-US carriers
+on property:ro.boot.warranty.sku=BOF
+    setprop setupwizard.feature.provisioning_profile_mode false
+# Disable bootstrap for UGS devices
+on property:ro.boot.warranty.sku=UGS
+    setprop setupwizard.feature.provisioning_profile_mode false
