@@ -66,7 +66,6 @@ include device/google/gs-common/bcmbt/bluetooth.mk
 include device/google/gs-common/touch/gti/predump_gti.mk
 include device/google/gs-common/touch/syna/predump_syna20.mk
 include device/google/gs-common/gril/aidl/2.0/gril_aidl.mk
-include device/google/gs-common/pixelsupport/pixelsupport.mk
 
 # go/lyric-soong-variables
 $(call soong_config_set,lyric,camera_hardware,tegu)
@@ -441,10 +440,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_VENDOR_PROPERTIES += \
     vendor.powerhal.apf_disabled=false \
     vendor.powerhal.apf_enabled=true
-
-#Component Override for Pixel Troubleshooting App
-PRODUCT_COPY_FILES += \
-    device/google/tegu/tegu-component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/tegu-component-overrides.xml
 
 # Increment the SVN for any official public releases
 ifdef RELEASE_SVN_TEGU
