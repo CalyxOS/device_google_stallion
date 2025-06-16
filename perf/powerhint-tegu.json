@@ -114,7 +114,17 @@
         "1000",
         "500"
       ],
-      "DefaultIndex": 0,
+      "DefaultIndex": 3,
+      "ResetOnInit": true
+    },
+    {
+      "Name": "CPULittleClusterResponseTimeMs",
+      "Path": "/sys/devices/system/cpu/cpu0/cpufreq/sched_pixel/response_time_ms",
+      "Values": [
+        "10",
+        "13"
+      ],
+      "DefaultIndex": 1,
       "ResetOnInit": true
     },
     {
@@ -155,7 +165,17 @@
         "2000",
         "500"
       ],
-      "DefaultIndex": 0,
+      "DefaultIndex": 4,
+      "ResetOnInit": true
+    },
+    {
+      "Name": "CPUMidClusterResponseTimeMs",
+      "Path": "/sys/devices/system/cpu/cpu4/cpufreq/sched_pixel/response_time_ms",
+      "Values": [
+        "54",
+        "56"
+      ],
+      "DefaultIndex": 1,
       "ResetOnInit": true
     },
     {
@@ -197,7 +217,17 @@
         "2000",
         "500"
       ],
-      "DefaultIndex": 0,
+      "DefaultIndex": 3,
+      "ResetOnInit": true
+    },
+    {
+      "Name": "CPUBigClusterResponseTimeMs",
+      "Path": "/sys/devices/system/cpu/cpu7/cpufreq/sched_pixel/response_time_ms",
+      "Values": [
+        "164",
+        "170"
+      ],
+      "DefaultIndex": 1,
       "ResetOnInit": true
     },
     {
@@ -278,7 +308,7 @@
         "0",
         "1"
       ],
-      "DefaultIndex": 0,
+      "DefaultIndex": 1,
       "ResetOnInit": true
     },
     {
@@ -288,7 +318,7 @@
         "0",
         "1"
       ],
-      "DefaultIndex": 0,
+      "DefaultIndex": 1,
       "ResetOnInit": true
     },
     {
@@ -322,7 +352,7 @@
         "7",
         "8"
       ],
-      "DefaultIndex": 2,
+      "DefaultIndex": 8,
       "ResetOnInit": true
     },
     {
@@ -332,7 +362,7 @@
         "0",
         "512"
       ],
-      "DefaultIndex": 0,
+      "DefaultIndex": 1,
       "ResetOnInit": true
     },
     {
@@ -633,16 +663,6 @@
         "1",
         "0"
       ]
-    },
-    {
-      "Name": "LimitFlashCurrent",
-      "Path": "vendor.camera.max_flash_current",
-      "Values": [
-        "100",
-        "1500"
-      ],
-      "ResetOnInit": true,
-      "Type": "Property"
     },
     {
       "Name": "PowerHALRenderingState",
@@ -967,6 +987,26 @@
       "Type": "Property"
     },
     {
+      "Name": "ntc_critical_trip",
+      "Path": "/dev/thermal/tz-by-name/north_therm/trip_point_1_temp",
+      "Values": [
+        "64700",
+        "74700"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {
+      "Name": "ntc_hot_trip",
+      "Path": "/dev/thermal/tz-by-name/north_therm/trip_point_2_temp",
+      "Values": [
+        "66700",
+        "76700"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {
       "Name": "MIFTargetLoad",
       "Path": "/sys/class/devfreq/17000010.devfreq_mif/interactive/target_load",
       "Values": [
@@ -979,9 +1019,12 @@
       "Name": "PA_KILL",
       "Path": "/sys/kernel/vendor_mm/pa_kill/reclaim_kb",
       "Values": [
+        "512000",
+        "307200",
         "102400",
         "0"
       ],
+      "WriteOnly": true,
       "ResetOnInit": false
     },
     {
@@ -1002,6 +1045,16 @@
         "200"
       ],
       "ResetOnInit": true
+    },
+    {
+      "Name": "SYSTEM_UI_ADPF_PROFILES",
+      "Path": "<AdpfConfig>:SYSTEM_UI",
+      "Values": [
+        "SYSTEM_UI_PROFILE"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true,
+      "Type": "Event"
     }
   ],
   "Actions": [
@@ -1195,9 +1248,9 @@
     {
       "PowerHint": "LAUNCH",
       "Node": "TAUclampMinOnNiceHighValue",
-      "Duration": 5000,
-      "Value": "765",
-      "EnableProperty": "vendor.powerhal.apf_enabled"
+       "Duration": 5000,
+       "Value": "765",
+       "EnableProperty": "vendor.powerhal.apf_enabled"
     },
     {
       "PowerHint": "LAUNCH",
@@ -1209,9 +1262,9 @@
     {
       "PowerHint": "LAUNCH",
       "Node": "TAUclampMinOnNiceMidValue",
-      "Duration": 5000,
-      "Value": "590",
-      "EnableProperty": "vendor.powerhal.apf_enabled"
+       "Duration": 5000,
+       "Value": "590",
+       "EnableProperty": "vendor.powerhal.apf_enabled"
     },
     {
       "PowerHint": "LAUNCH",
@@ -1225,6 +1278,12 @@
       "Node": "FGPreferIdle",
       "Duration": 5000,
       "Value": "1"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "TARampupMultiplier",
+      "Duration": 5000,
+      "Value": "4"
     },
     {
       "PowerHint": "LAUNCH_EXTEND",
@@ -1315,6 +1374,12 @@
       "Node": "AutoPreferIdle",
       "Duration": 2000,
       "Value": "0"
+    },
+    {
+      "PowerHint": "LAUNCH_EXTEND",
+      "Node": "TARampupMultiplier",
+      "Duration": 2000,
+      "Value": "4"
     },
     {
       "PowerHint": "LAUNCH_PMU",
@@ -1525,10 +1590,22 @@
       "Value": "0"
     },
     {
-      "PowerHint": "CAMERA_PA_KILL_BOOST",
+      "PowerHint": "CAMERA_PA_KILL_BOOST_LEVEL_1",
       "Node": "PA_KILL",
       "Duration": 0,
       "Value": "102400"
+    },
+    {
+      "PowerHint": "CAMERA_PA_KILL_BOOST_LEVEL_2",
+      "Node": "PA_KILL",
+      "Duration": 0,
+      "Value": "307200"
+    },
+    {
+      "PowerHint": "CAMERA_PA_KILL_BOOST_LEVEL_3",
+      "Node": "PA_KILL",
+      "Duration": 0,
+      "Value": "512000"
     },
     {
       "PowerHint": "CAMERA_LAUNCH",
@@ -1844,6 +1921,24 @@
     },
     {
       "PowerHint": "CAMERA_ZOOMING_BOOST",
+      "Node": "PMU_POLL",
+      "Duration": 100,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_MULTICAM_BOOST",
+      "Node": "CDPreferIdle",
+      "Duration": 100,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "CAMERA_MULTICAM_BOOST",
+      "Node": "AutoPreferIdle",
+      "Duration": 100,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_MULTICAM_BOOST",
       "Node": "PMU_POLL",
       "Duration": 100,
       "Value": "0"
@@ -2168,6 +2263,12 @@
     },
     {
       "PowerHint": "CAMERA_STREAMING_EXTREME",
+      "Node": "FGPreferIdle",
+      "Duration": 0,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_EXTREME",
       "Node": "AutoPreferIdle",
       "Duration": 0,
       "Value": "0"
@@ -2369,6 +2470,12 @@
       "Node": "TAPreferIdle",
       "Duration": 0,
       "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_HIGH",
+      "Node": "FGPreferIdle",
+      "Duration": 0,
+      "Value": "1"
     },
     {
       "PowerHint": "CAMERA_STREAMING_HIGH",
@@ -2576,6 +2683,12 @@
     },
     {
       "PowerHint": "CAMERA_STREAMING_STANDARD",
+      "Node": "FGPreferIdle",
+      "Duration": 0,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_STANDARD",
       "Node": "MemFreq",
       "Duration": 0,
       "Value": "1352000"
@@ -2621,6 +2734,18 @@
       "Node": "CPUSkipMask",
       "Duration": 0,
       "Value": "0x80"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_LOW",
+      "Node": "TAPreferIdle",
+      "Duration": 0,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_LOW",
+      "Node": "FGPreferIdle",
+      "Duration": 0,
+      "Value": "1"
     },
     {
       "PowerHint": "CAMERA_STREAMING_LOW",
@@ -2783,6 +2908,12 @@
       "Node": "TAPreferIdle",
       "Duration": 0,
       "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_VIDEO_CALL",
+      "Node": "FGPreferIdle",
+      "Duration": 0,
+      "Value": "1"
     },
     {
       "PowerHint": "CAMERA_STREAMING_VIDEO_CALL",
@@ -3147,24 +3278,6 @@
       "Value": "1"
     },
     {
-      "PowerHint": "REFRESH_120FPS",
-      "Node": "TAUClampBoost",
-      "Duration": 0,
-      "Value": "1"
-    },
-    {
-      "PowerHint": "REFRESH_60FPS",
-      "Node": "TAUClampBoost",
-      "Duration": 0,
-      "Value": "1"
-    },
-    {
-      "PowerHint": "ADPF_DISABLE_TA_BOOST",
-      "Node": "TAUClampBoost",
-      "Duration": 0,
-      "Value": "1"
-    },
-    {
       "PowerHint": "AUTOMOTIVE_PROJECTION",
       "Node": "AAModeProperty",
       "Duration": 0,
@@ -3185,13 +3298,31 @@
       "PowerHint": "DISPLAY_IDLE",
       "Node": "TARampupMultiplier",
       "Duration": 0,
-      "Value": "0"
+      "Value": "1"
     },
     {
       "PowerHint": "DISPLAY_IDLE",
       "Node": "AdpfRampupMultiplier",
       "Duration": 0,
-      "Value": "0"
+      "Value": "1"
+    },
+    {
+      "PowerHint": "DISPLAY_IDLE",
+      "Node": "CPULittleClusterResponseTimeMs",
+      "Duration": 0,
+      "Value": "13"
+    },
+    {
+      "PowerHint": "DISPLAY_IDLE",
+      "Node": "CPUMidClusterResponseTimeMs",
+      "Duration": 0,
+      "Value": "56"
+    },
+    {
+      "PowerHint": "DISPLAY_IDLE",
+      "Node": "CPUBigClusterResponseTimeMs",
+      "Duration": 0,
+      "Value": "170"
     },
     {
       "PowerHint": "DISPLAY_IDLE",
@@ -3228,18 +3359,6 @@
       "Node": "DisplayWakeup",
       "Duration": 50,
       "Value": "1"
-    },
-    {
-      "PowerHint": "THERMAL_FLASH_LED_REDUCE_CRITICAL",
-      "Node": "LimitFlashCurrent",
-      "Duration": 0,
-      "Value": "100"
-    },
-    {
-      "PowerHint": "THERMAL_FLASH_LED_REDUCE_NONE",
-      "Node": "LimitFlashCurrent",
-      "Duration": 0,
-      "Value": "1500"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
@@ -3335,13 +3454,15 @@
       "PowerHint": "GAME",
       "Node": "AutoMigrationMarginsEnable",
       "Duration": 0,
-      "Value": "1"
+      "Value": "1",
+      "EnableProperty": "vendor.powerhal.amm_enabled"
     },
     {
       "PowerHint": "GAME",
       "Node": "AutoDvfsHeadroomEnable",
       "Duration": 0,
-      "Value": "1"
+      "Value": "1",
+      "EnableProperty": "vendor.powerhal.amm_enabled"
     },
     {
       "PowerHint": "GAME",
@@ -3354,6 +3475,24 @@
       "Node": "AdpfRampupMultiplier",
       "Duration": 0,
       "Value": "2"
+    },
+    {
+      "PowerHint": "GAME",
+      "Node": "CPULittleClusterResponseTimeMs",
+      "Duration": 0,
+      "Value": "10"
+    },
+    {
+      "PowerHint": "GAME",
+      "Node": "CPUMidClusterResponseTimeMs",
+      "Duration": 0,
+      "Value": "54"
+    },
+    {
+      "PowerHint": "GAME",
+      "Node": "CPUBigClusterResponseTimeMs",
+      "Duration": 0,
+      "Value": "164"
     },
     {
       "PowerHint": "GAME",
@@ -3468,6 +3607,18 @@
       "Node": "Dex2oatThreads",
       "Duration": 0,
       "Value": "1"
+    },
+    {
+      "PowerHint": "THERMAL_ShutdownMode_EMERGENCY",
+      "Node": "ntc_critical_trip",
+      "Duration": 0,
+      "Value": "74700"
+    },
+    {
+      "PowerHint": "THERMAL_ShutdownMode_EMERGENCY",
+      "Node": "ntc_hot_trip",
+      "Duration": 0,
+      "Value": "76700"
     },
     {
       "PowerHint": "FACE_UNLOCK_BOOST",
@@ -3681,6 +3832,12 @@
     },
     {
       "PowerHint": "CAMERA_PROJECT11",
+      "Node": "FGPreferIdle",
+      "Duration": 0,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "CAMERA_PROJECT11",
       "Node": "MemFreq",
       "Duration": 0,
       "Value": "1352000"
@@ -3732,6 +3889,18 @@
       "Node": "MIFTargetLoad",
       "Duration": 0,
       "Value": "20 80"
+    },
+    {
+      "PowerHint": "DISABLE_AMM",
+      "Node": "AutoMigrationMarginsEnable",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "DISABLE_AMM",
+      "Node": "AutoDvfsHeadroomEnable",
+      "Duration": 0,
+      "Value": "0"
     }
   ],
   "AdpfConfig": [
@@ -3851,80 +4020,42 @@
       "GpuCapacityBoostMax": 25000
     },
     {
-      "Name": "UiHighBoostWithoutPid",
-      "PID_On": false,
-      "PID_Po": 0,
-      "PID_Pu": 0,
-      "PID_I": 0,
-      "PID_I_Init": 0,
-      "PID_I_High": 0,
-      "PID_I_Low": 0,
-      "PID_Do": 0,
-      "PID_Du": 0,
-      "SamplingWindow_P": 1,
-      "SamplingWindow_I": 1,
-      "SamplingWindow_D": 1,
+      "Name": "SYSTEM_UI_PROFILE",
+      "PID_On": true,
+      "PID_Po": 2.0,
+      "PID_Pu": 0.5,
+      "PID_I": 0.0,
+      "PID_I_Init": 200,
+      "PID_I_High": 512,
+      "PID_I_Low": -30,
+      "PID_Do": 500.0,
+      "PID_Du": 0.0,
       "UclampMin_On": true,
-      "UclampMin_Init": 250,
-      "UclampMin_High": 196,
-      "UclampMin_Low": 196,
+      "UclampMin_Init": 231,
+      "UclampMin_LoadUp": 730,
+      "UclampMin_LoadReset": 730,
+      "UclampMin_High": 480,
+      "UclampMin_Low": 2,
       "UclampMax_EfficientBase": 500,
       "UclampMax_EfficientOffset": 200,
-      "ReportingRateLimitNs": 1,
-      "EarlyBoost_On": false,
-      "EarlyBoost_TimeFactor": 0.0,
-      "TargetTimeFactor": 1.0,
-      "StaleTimeFactor": 5.0
-    },
-    {
-      "Name": "UiLowBoostWithoutPid",
-      "PID_On": false,
-      "PID_Po": 0,
-      "PID_Pu": 0,
-      "PID_I": 0,
-      "PID_I_Init": 0,
-      "PID_I_High": 0,
-      "PID_I_Low": 0,
-      "PID_Do": 0,
-      "PID_Du": 0,
       "SamplingWindow_P": 1,
-      "SamplingWindow_I": 1,
+      "SamplingWindow_I": 0,
       "SamplingWindow_D": 1,
-      "UclampMin_On": true,
-      "UclampMin_Init": 250,
-      "UclampMin_High": 52,
-      "UclampMin_Low": 52,
-      "UclampMax_EfficientBase": 500,
-      "UclampMax_EfficientOffset": 200,
-      "ReportingRateLimitNs": 1,
-      "EarlyBoost_On": false,
-      "EarlyBoost_TimeFactor": 0.0,
+      "ReportingRateLimitNs": 166666660,
       "TargetTimeFactor": 1.0,
-      "StaleTimeFactor": 5.0
-    },
-    {
-      "Name": "UiLowNoneBoost",
-      "PID_On": false,
-      "PID_Po": 0,
-      "PID_Pu": 0,
-      "PID_I": 0,
-      "PID_I_Init": 0,
-      "PID_I_High": 0,
-      "PID_I_Low": 0,
-      "PID_Do": 0,
-      "PID_Du": 0,
-      "SamplingWindow_P": 1,
-      "SamplingWindow_I": 1,
-      "SamplingWindow_D": 1,
-      "UclampMin_On": true,
-      "UclampMin_Init": 250,
-      "UclampMin_High": 0,
-      "UclampMin_Low": 0,
-      "UclampMax_EfficientBase": 500,
-      "UclampMax_EfficientOffset": 200,
-      "ReportingRateLimitNs": 1,
-      "TargetTimeFactor": 1.0,
-      "StaleTimeFactor": 5.0
+      "StaleTimeFactor": 15.0,
+      "HeuristicBoost_On": true,
+      "HBoostModerateJankThreshold": 2,
+      "HBoostOffMaxAvgDurRatio": 4.0,
+      "HBoostSevereJankPidPu": 0.3,
+      "HBoostSevereJankThreshold": 8,
+      "HBoostUclampMinCeilingRange": [480, 722],
+      "HBoostUclampMinFloorRange": [230, 410],
+      "JankCheckTimeFactor": 1.2,
+      "LowFrameRateThreshold": 25,
+      "MaxRecordsNum": 300,
+      "GpuBoost": true,
+      "GpuCapacityBoostMax": 25000
     }
   ]
 }
