@@ -49,6 +49,11 @@
             "Name":"battery",
             "Type":"BATTERY",
             "HotThreshold":["NAN", "NAN", "NAN", "NAN", "NAN", "NAN", 60.0],
+            "HotHysteresis":[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.9],
+            "SendCallback": true,
+            "TripPointIgnorable": true,
+            "PollingDelay": 60000,
+            "PassiveDelay": 60000,
             "Multiplier":0.001
         },
         {
@@ -218,7 +223,6 @@
             "Formula": "WEIGHTED_AVG",
             "Combination": ["VIRTUAL-SKIN-MODEL", "VIRTUAL-SKIN-LEGACY"],
             "Coefficient": [1.0, -1.0],
-            "SendPowerHint":true,
             "Multiplier": 1
         },
         {
@@ -229,7 +233,6 @@
             "Formula": "WEIGHTED_AVG",
             "Combination": ["VIRTUAL-SKIN-ODPM-MODEL", "VIRTUAL-SKIN-LEGACY"],
             "Coefficient": [1.0, -1.0],
-            "SendPowerHint":true,
             "Multiplier": 1
         },
         {
@@ -238,7 +241,7 @@
             "VirtualSensor": true,
             "Hidden": true,
             "Formula": "MINIMUM",
-            "Combination": ["60000", "VIRTUAL-SKIN-MODEL"],
+            "Combination": ["55000", "VIRTUAL-SKIN-MODEL"],
             "CombinationType": ["CONSTANT", "SENSOR"],
             "Coefficient": [1.0, 1.0],
             "Multiplier": 1
