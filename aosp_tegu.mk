@@ -20,7 +20,7 @@ USE_SWIFTSHADER := false
 BOARD_USES_SWIFTSHADER := false
 
 $(call inherit-product, device/google/zumapro/aosp_common.mk)
-$(call inherit-product, device/google/tegu/tegu_generic.mk)
+$(call inherit-product, device/google/tegu/device-tegu.mk)
 
 PRODUCT_NAME := aosp_tegu
 PRODUCT_DEVICE := tegu

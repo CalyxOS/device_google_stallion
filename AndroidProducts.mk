@@ -16,9 +16,4 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/aosp_tegu.mk \
-    $(LOCAL_DIR)/aosp_tegu_fullmte.mk \
-    $(LOCAL_DIR)/factory_tegu.mk \
     $(LOCAL_DIR)/lineage_tegu.mk
-
-COMMON_LUNCH_CHOICES := \
-    aosp_tegu-trunk_staging-userdebug
