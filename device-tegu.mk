@@ -46,13 +46,6 @@ ifneq ($(TARGET_BOOTS_16K),true)
 PRODUCT_16K_DEVELOPER_OPTION := $(RELEASE_GOOGLE_TEGU_16K_DEVELOPER_OPTION)
 endif
 
-$(call inherit-product-if-exists, vendor/google_devices/tegu/prebuilts/device-vendor-tegu.mk)
-$(call inherit-product-if-exists, vendor/google_devices/zumapro/prebuilts/device-vendor.mk)
-$(call inherit-product-if-exists, vendor/google_devices/zumapro/proprietary/device-vendor.mk)
-$(call inherit-product-if-exists, vendor/google_devices/tegu/proprietary/WallpapersTegu.mk)
-$(call inherit-product-if-exists, vendor/google_devices/tegu/proprietary/device-vendor.mk)
-$(call inherit-product-if-exists, vendor/google_devices/tegu/proprietary/tegu/device-vendor-tegu.mk)
-
 # display
 DEVICE_PACKAGE_OVERLAYS += device/google/tegu/tegu/overlay
 
@@ -295,9 +288,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     SettingsTeguOverlay
 
-# Trusty liboemcrypto.so
-PRODUCT_SOONG_NAMESPACES += vendor/google_devices/tegu/prebuilts
-
 # Location
 include device/google/tegu/location/device-gnss.mk
 # For GPS property
@@ -359,12 +349,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # PKVM Memory Reclaim
 PRODUCT_VENDOR_PROPERTIES += \
     hypervisor.memory_reclaim.supported=1
-
-# Fingerprint HAL
-GOODIX_CONFIG_BUILD_VERSION := g7_trusty
-PRODUCT_SOONG_NAMESPACES += vendor/google_devices/tegu/prebuilts/firmware/fingerprint
-$(call inherit-product-if-exists, vendor/goodix/udfps/configuration/udfps_common.mk)
-$(call inherit-product-if-exists, vendor/goodix/udfps/configuration/udfps_shipping.mk)
 
 # Fingerprint exposure compensation
 PRODUCT_VENDOR_PROPERTIES += \
