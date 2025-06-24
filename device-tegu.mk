@@ -49,9 +49,7 @@ endif
 # display
 DEVICE_PACKAGE_OVERLAYS += device/google/tegu/tegu/overlay
 
-ifeq ($(RELEASE_PIXEL_AIDL_AUDIO_HAL),true)
 USE_AUDIO_HAL_AIDL := true
-endif
 
 include device/google/tegu/audio/tegu/audio-tables.mk
 include device/google/zumapro/device-shipping-common.mk
