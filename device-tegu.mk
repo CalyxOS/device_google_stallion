@@ -43,7 +43,7 @@ TARGET_BOARD_KERNEL_HEADERS ?= device/google/tegu-kernels/6.1/25D4/kernel-header
 endif
 
 ifneq ($(TARGET_BOOTS_16K),true)
-PRODUCT_16K_DEVELOPER_OPTION := $(RELEASE_GOOGLE_TEGU_16K_DEVELOPER_OPTION)
+PRODUCT_16K_DEVELOPER_OPTION := true
 endif
 
 # display
