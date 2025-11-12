@@ -20,9 +20,6 @@ PRODUCT_PACKAGES += \
 	hwservicemanager \
 	android.hidl.allocator@1.0-service
 
-USES_RADIOEXT_V1_7 = false
-USES_RADIOEXT_V2_0 = true
-
 TARGET_LINUX_KERNEL_VERSION := 6.1
 TARGET_KERNEL_DEVICE := tegu
 TARGET_KERNEL_DIR := device/google/$(TARGET_KERNEL_DEVICE)-kernels/$(TARGET_LINUX_KERNEL_VERSION)
@@ -32,10 +29,7 @@ ifneq ($(TARGET_BOOTS_16K),true)
 PRODUCT_16K_DEVELOPER_OPTION := true
 endif
 
-# display
 DEVICE_PACKAGE_OVERLAYS += device/google/tegu/tegu/overlay
-
-USE_AUDIO_HAL_AIDL := true
 
 include device/google/tegu/audio/tegu/audio-tables.mk
 include device/google/zumapro/device-shipping-common.mk
@@ -43,12 +37,6 @@ include device/google/gs-common/bcmbt/bluetooth.mk
 include device/google/gs-common/touch/gti/predump_gti.mk
 include device/google/gs-common/touch/syna/predump_syna20.mk
 include device/google/gs-common/gril/aidl/2.0/gril_aidl.mk
-
-# go/lyric-soong-variables
-$(call soong_config_set,lyric,camera_hardware,tegu)
-$(call soong_config_set,lyric,tuning_product,tegu)
-$(call soong_config_set,google3a_config,target_device,tegu)
-$(call soong_config_set,lyric,radioext_interface_type,aidl)
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.ignore_hdr_camera_layers=true
 
@@ -59,11 +47,6 @@ PRODUCT_COPY_FILES += \
 # Recovery files
 PRODUCT_COPY_FILES += \
         device/google/tegu/conf/init.recovery.device.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.tegu.rc
-
-# Enable AIDL based oemservice HAL
-USE_OEMSERVICE_HAL_AIDL := true
-# Enable AIDL based radioExternal HAL
-USE_RADIOEXTERNAL_HAL_AIDL := true
 
 # NFC
 PRODUCT_COPY_FILES += \
@@ -150,13 +133,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.vendor.bluetooth.evb_bdaddr="22:22:22:33:44:55"
 
-ifneq ($(USE_AUDIO_HAL_AIDL),true)
-# HIDL Sound Dose
-PRODUCT_PACKAGES += \
-	android.hardware.audio.sounddose-vendor-impl \
-	audio_sounddose_aoc
-endif
-
 # HdMic Audio
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.app.audio.gsenet.version=1
@@ -229,36 +205,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.support_one_handed_mode=true
 
-# Keymaster HAL
-#LOCAL_KEYMASTER_PRODUCT_PACKAGE ?= android.hardware.keymaster@4.1-service
-
-# Gatekeeper HAL
-#LOCAL_GATEKEEPER_PRODUCT_PACKAGE ?= android.hardware.gatekeeper@1.0-service.software
-
-
-# Gatekeeper
-# PRODUCT_PACKAGES += \
-# 	android.hardware.gatekeeper@1.0-service.software
-
-# Keymint replaces Keymaster
-# PRODUCT_PACKAGES += \
-# 	android.hardware.security.keymint-service
-
-# Keymaster
-#PRODUCT_PACKAGES += \
-#	android.hardware.keymaster@4.0-impl \
-#	android.hardware.keymaster@4.0-service
-
-#PRODUCT_PACKAGES += android.hardware.keymaster@4.0-service.remote
-#PRODUCT_PACKAGES += android.hardware.keymaster@4.1-service.remote
-#LOCAL_KEYMASTER_PRODUCT_PACKAGE := android.hardware.keymaster@4.1-service
-#LOCAL_KEYMASTER_PRODUCT_PACKAGE ?= android.hardware.keymaster@4.1-service
-
-# PRODUCT_PROPERTY_OVERRIDES += \
-# 	ro.hardware.keystore_desede=true \
-# 	ro.hardware.keystore=software \
-# 	ro.hardware.gatekeeper=software
-
 # PowerStats HAL
 PRODUCT_SOONG_NAMESPACES += \
     device/google/tegu/powerstats/tegu
@@ -305,8 +251,6 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.vendor.display.read_temp_interval=30
 
 # Vibrator HAL
-$(call soong_config_set,haptics,kernel_ver,v$(subst .,_,$(TARGET_LINUX_KERNEL_VERSION)))
-ADAPTIVE_HAPTICS_FEATURE := adaptive_haptics_v1
 PRODUCT_VENDOR_PROPERTIES += \
     ro.vendor.vibrator.hal.f0.comp.enabled=1 \
     ro.vendor.vibrator.hal.redc.comp.enabled=0 \
@@ -358,13 +302,6 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
 	$(TARGET_VENDOR_BATTERY_MITIGATION_CONFIG_PATH)/bm_config_tegu.json:$(TARGET_COPY_OUT_VENDOR)/etc/bm_config.json
-
-# IRadio HAL
-USE_RADIO_HAL_2_1 := false
-USE_RADIO_HAL_2_2 := true
-
-# Allow RIL enable/disable ENDC mode during Radio OFF
-ALLOW_SET_ENDC_DURING_RADIO_OFF := true
 
 # Set support for LEA multicodec
 PRODUCT_PRODUCT_PROPERTIES += \
