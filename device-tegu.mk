@@ -23,16 +23,7 @@ PRODUCT_PACKAGES += \
 USES_RADIOEXT_V1_7 = false
 USES_RADIOEXT_V2_0 = true
 
-ifdef RELEASE_GOOGLE_TEGU_RADIO_DIR
-RELEASE_GOOGLE_PRODUCT_RADIO_DIR := $(RELEASE_GOOGLE_TEGU_RADIO_DIR)
-endif
-ifdef RELEASE_GOOGLE_TEGU_RADIOCFG_DIR
-RELEASE_GOOGLE_PRODUCT_RADIOCFG_DIR := $(RELEASE_GOOGLE_TEGU_RADIOCFG_DIR)
-endif
-RELEASE_GOOGLE_BOOTLOADER_TEGU_DIR ?= 25D4# Keep this for pdk TODO: b/327119000
-RELEASE_GOOGLE_PRODUCT_BOOTLOADER_DIR := bootloader/$(RELEASE_GOOGLE_BOOTLOADER_TEGU_DIR)
-$(call soong_config_set,tegu_bootloader,prebuilt_dir,$(RELEASE_GOOGLE_BOOTLOADER_TEGU_DIR))
-
+TARGET_LINUX_KERNEL_VERSION := 6.1
 TARGET_KERNEL_DEVICE := tegu
 TARGET_KERNEL_DIR := device/google/$(TARGET_KERNEL_DEVICE)-kernels/$(TARGET_LINUX_KERNEL_VERSION)
 TARGET_KERNEL_PLATFORM_SOURCE := google/gs-$(TARGET_LINUX_KERNEL_VERSION)
@@ -85,7 +76,6 @@ PRODUCT_COPY_FILES += \
 	device/google/tegu/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_PRODUCT)/etc/libnfc-nci.conf
 
 PRODUCT_PACKAGES += \
-	$(RELEASE_PACKAGE_NFC_STACK) \
 	Tag \
 	android.hardware.nfc-service.st \
 	NfcOverlayTegu
@@ -393,31 +383,9 @@ PRODUCT_VENDOR_PROPERTIES += \
     vendor.powerhal.apf_enabled=true
 
 # Increment the SVN for any official public releases
-ifdef RELEASE_SVN_TEGU
-TARGET_SVN ?= $(RELEASE_SVN_TEGU)
-else
-# Set this for older releases that don't use build flag
-TARGET_SVN ?= 6
-endif
-
 PRODUCT_VENDOR_PROPERTIES += \
-    ro.vendor.build.svn=$(TARGET_SVN)
+    ro.vendor.build.svn=18
 
 # Set device family property for SMR
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.device_family=CM4KM4TK4TG4
-
-# Set build properties for SMR builds
-ifeq ($(RELEASE_IS_SMR), true)
-    ifneq (,$(RELEASE_BASE_OS_TEGU))
-        PRODUCT_BASE_OS := $(RELEASE_BASE_OS_TEGU)
-    endif
-endif
-
-# Set build properties for EMR builds
-ifeq ($(RELEASE_IS_EMR), true)
-    ifneq (,$(RELEASE_BASE_OS_TEGU))
-        PRODUCT_PROPERTY_OVERRIDES += \
-        ro.build.version.emergency_base_os=$(RELEASE_BASE_OS_TEGU)
-    endif
-endif
