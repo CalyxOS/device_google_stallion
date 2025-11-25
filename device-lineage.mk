@@ -18,10 +18,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     EuiccSupportPixelOverlay
 
-# IWLAN
-PRODUCT_PACKAGES += \
-    Iwlan
-
 # wireless_charger HAL service
 include device/google/gs-common/wireless_charger/wireless_charger.mk
 

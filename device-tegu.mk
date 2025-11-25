@@ -56,7 +56,6 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.nfc.ese.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.ese.xml
 
 PRODUCT_PACKAGES += \
-	Tag \
 	android.hardware.nfc-service.st \
 	NfcOverlayTegu
 
@@ -70,10 +69,6 @@ PRODUCT_COPY_FILES += \
 
 # lhbm peak brightness delay: decided by kernel
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += vendor.primarydisplay.lhbm.frames_to_reach_peak_brightness=0
-
-# Thermal VT estimator
-PRODUCT_PACKAGES += \
-    libthermal_tflite_wrapper
 
 # Bluetooth HAL
 PRODUCT_PROPERTY_OVERRIDES += \
