@@ -78,7 +78,7 @@ vendor.rild.libpath=libsitril.so
 persist.device_config.configuration.disable_rescue_party=true
 
 # SVN
-ro.vendor.build.svn=18
+ro.vendor.build.svn=20
 
 # Touch
 ro.vendor.touch.dump.sys=/sys/devices/platform/111d0000.spi/spi_master/spi20/spi20.0/synaptics_tcm.0/sysfs
