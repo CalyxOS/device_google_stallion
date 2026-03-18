@@ -5,4 +5,5 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/aosp_stallion.mk \
+    $(LOCAL_DIR)/calyx_stallion.mk \
     $(LOCAL_DIR)/lineage_stallion.mk
