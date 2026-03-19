@@ -40,7 +40,6 @@ PRODUCT_COPY_FILES += \
 # Overlays
 PRODUCT_PACKAGES += \
     AmbientCueOverlay \
-    DMServiceOverlayVendorStallion \
     FrameworkResOverlayProductStallion \
     FrameworkResOverlayVendorStallion \
     PixelDisplayServiceOverlayProductStallion \
