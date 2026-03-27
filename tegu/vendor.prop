@@ -38,7 +38,7 @@ hypervisor.memory_reclaim.supported=1
 persist.vendor.ril.use_radio_hal=2.2
 
 # SVN
-ro.vendor.build.svn=31
+ro.vendor.build.svn=33
 
 # Touch
 ro.vendor.touch.dump.sys=/sys/devices/platform/111d0000.spi/spi_master/spi20/spi20.0/synaptics_tcm.0/sysfs
