@@ -1,1 +1,2 @@
+binder_call(dumpstate, ambience_hub_default)
 binder_call(dumpstate, rild)

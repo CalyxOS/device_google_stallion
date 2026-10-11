@@ -4,6 +4,8 @@ hal_server_domain(ambience_hub_default, hal_ambience_hub)
 
 binder_call(ambience_hub_default, twoshay)
 
+crash_dump_fallback(ambience_hub_default)
+
 init_daemon_domain(ambience_hub_default)
 
 allow ambience_hub_default twoshay_notification_service:service_manager find;
