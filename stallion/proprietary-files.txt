@@ -4,8 +4,6 @@
 
 # IMS
 product/etc/sysconfig/allowlist_com.shannon.imsservice.xml
-product/etc/sysconfig/preinstalled-packages-com.shannon.imsservice.xml
-product/etc/sysconfig/preinstalled-packages-com.shannon.rcsservice.xml
 
 # NFC
 product/etc/libnfc-nci.conf
@@ -27,7 +25,6 @@ system_ext/etc/init/vendor.google.whitechapel.audio.hal.parserservice.rc
 system_ext/etc/vintf/camera_interference_avoidance_framework_compatibility_matrix_system_ext
 
 # Display
-system_ext/etc/sysconfig/preinstalled-packages-pixeldisplayservice.xml
 system_ext/lib64/libpixeldisplaymanager_jni.so;SYMLINK=system_ext/priv-app/PixelDisplayService/lib/arm64/libpixeldisplaymanager_jni.so
 system_ext/priv-app/PixelDisplayService/PixelDisplayService.apk
 
@@ -36,14 +33,13 @@ system_ext/bin/hw/vendor.google.edgetpu_app_service@1.0-service
 system_ext/etc/init/vendor.google.edgetpu_app_service@1.0-service.rc
 system_ext/etc/public.libraries-google.txt
 system_ext/etc/vintf/manifest/vendor.google.edgetpu_app_service@1.0-service.xml
-system_ext/lib64/com.google.edgetpu_app_service-V6-ndk.so
+system_ext/lib64/com.google.edgetpu_app_service-V10-ndk.so
 system_ext/lib64/com.google.edgetpu_vendor_service-V2-ndk.so
 
 # IMS
 system_ext/etc/permissions/com.android.qns.xml
 system_ext/etc/permissions/com.shannon.imsservice.xml
 system_ext/etc/permissions/com.shannon.rcsservice.xml
-system_ext/etc/sysconfig/preinstalled-packages-pixelimsmedia.xml
 system_ext/lib64/libmediaadaptor.so
 system_ext/lib64/libpixelimsmedia.so
 system_ext/lib64/vendor.google.whitechapel.audio.audioext@4.0.so
@@ -59,12 +55,13 @@ system_ext/etc/permissions/com.google.android.rilextension.xml
 system_ext/etc/permissions/com.google.euiccpixel.permissions.xml
 system_ext/etc/permissions/com.google.euiccpixel.xml
 system_ext/etc/permissions/google-ril.xml
-system_ext/etc/sysconfig/preinstalled-packages-ril.xml
+system_ext/etc/permissions/privapp-permlist_com.google.android.grilservice.xml
 system_ext/framework/google-ril.jar
 system_ext/priv-app/EuiccGoogleOverlay/EuiccGoogleOverlay.apk
 system_ext/priv-app/EuiccSupportPixel-P23/DKA_0302_25.up
 system_ext/priv-app/EuiccSupportPixel-P23/EuiccSupportPixel-P23.apk;PRESIGNED
 system_ext/priv-app/EuiccSupportPixel-P23/Felica_Tag_66_Changer.apdu
+system_ext/priv-app/EuiccSupportPixel-P23/esim-full-v1-security.img
 system_ext/priv-app/EuiccSupportPixel-P23/esim-full-v1.img
 system_ext/priv-app/EuiccSupportPixelPermissions/EuiccSupportPixelPermissions.apk;PRESIGNED
 system_ext/priv-app/ril-extension/ril-extension.apk;PRESIGNED
@@ -95,3 +92,8 @@ recovery/system/etc/vintf/manifest/android.hardware.boot-service.default_recover
 recovery/system/bin/hw/android.hardware.health-service.zumapro_recovery
 recovery/system/etc/init/android.hardware.health-service.zumapro_recovery.rc
 recovery/system/etc/vintf/manifest/android.hardware.health-service.zumapro.xml:recovery/system/etc/vintf/manifest/android.hardware.health-service.zumapro_recovery.xml
+
+# Rust - from CP2A.260805.005
+vendor/bin/dump/dump_modem|126ba65ea84c3fee868611f527aaed2312e4b2ad
+vendor/bin/gpuflag|7f1689f909dbc423b49f56b4192c5b2bb5501851
+vendor/bin/hw/vendor.google.mte_launcher|f9cdf2e9ce61e0a4018429a6541e6d4574d77c36
